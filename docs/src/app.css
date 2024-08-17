@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* html {
+  scroll-behavior: smooth !important;
+} */
+
+html {
+  @apply bg-zinc-900;
+}
+
+.prose code:not(pre > code) {
+  @apply px-1.5 py-1 text-slate-200 rounded bg-[#24292e];
+}
+
+.prose code:not(pre > code)::before,
+.prose code:not(pre > code)::after {
+  @apply hidden;
+}
+
+.prose p:is(blockquote > p)::before,
+.prose p:is(blockquote > p)::after {
+  @apply hidden;
+}
+
+.stable {
+  scrollbar-gutter: stable;
+}
+
+html {
+  @apply stable;
+}
+
+html :has(.body-overflow-hidden) {
+  @apply overflow-hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+  @apply size-2;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-zinc-800 rounded;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-500 rounded;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

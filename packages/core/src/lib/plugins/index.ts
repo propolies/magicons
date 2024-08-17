@@ -1,0 +1,1 @@
+export { magicon } from './preprocessor.js'

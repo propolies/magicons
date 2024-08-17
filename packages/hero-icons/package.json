@@ -1,0 +1,23 @@
+{
+  "name": "@magicon/hero-icons",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "exports": {
+		"./*.svg": {
+			"default": "./dist/*.svg"
+		},
+    "./test.svg": {
+      "default": "./dist/test.svg"
+    }
+	},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "magic-string": "^0.30.10"
+  }
+}

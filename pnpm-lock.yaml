@@ -58,7 +58,7 @@ importers:
         specifier: ^2.0.0
         version: 2.5.22(@sveltejs/vite-plugin-svelte@3.1.1)(svelte@5.0.0-next.224)(vite@5.4.1)
       '@sveltejs/vite-plugin-svelte':
-        specifier: ^3.0.0
+        specifier: ^3.1.1
         version: 3.1.1(svelte@5.0.0-next.224)(vite@5.4.1)
       '@tailwindcss/typography':
         specifier: ^0.5.12

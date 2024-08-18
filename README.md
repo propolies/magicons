@@ -17,6 +17,6 @@ Fast, typesafe Icon wrapper for **svelte**.
 <Icon src={icon} class="size-12" />
 ```
 
-All string matching the pattern `@hero-` will generate the correct imports, thus making this extremely fast.
+All strings matching the pattern `@hero-` will generate the correct imports making this extremely fast.
 
 Read more in the [docs](https://propolies.github.io/magicon/docs/getting-started/introduction)

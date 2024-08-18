@@ -1,6 +1,6 @@
 {
 	"name": "@magicon/core",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"description": "Fast, typesafe Icon wrapper for svelte",
 	"keywords": [
 		"icons",
@@ -19,14 +19,13 @@
 	"homepage": "https://propolies.github.io/magicon/",
 	"scripts": {
 		"dev": "rimraf dist && svelte-package --watch",
-		"build": "rimraf dist && svelte-package && publint",
+		"build": "rimraf dist && vite build && svelte-package && svelte-kit sync && publint",
 		"test": "cd tests && pnpm test"
 	},
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
-			"svelte": "./dist/index.js",
-			"import": "./dist/index.js"
+			"svelte": "./dist/index.js"
 		},
 		"./plugins": {
 			"types": "./dist/plugins/index.d.ts",

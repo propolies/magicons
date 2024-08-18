@@ -10,6 +10,9 @@ dependencies:
     version: 0.0.3
 
 devDependencies:
+  '@magicon/core':
+    specifier: 0.0.6
+    version: 0.0.6(svelte@5.0.0-next.224)
   '@magicon/hero-icons':
     specifier: ^0.0.1
     version: 0.0.1
@@ -63,7 +66,7 @@ devDependencies:
     version: 1.6.0
   svelte:
     specifier: 5.0.0-next.224
-    version: 5.0.0-next.136
+    version: 5.0.0-next.224
   svelte-check:
     specifier: ^3.6.0
     version: 3.7.1(postcss@8.4.38)(svelte@5.0.0-next.136)
@@ -405,6 +408,14 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
+    dev: true
+
+  /@magicon/core@0.0.6(svelte@5.0.0-next.224):
+    resolution: {integrity: sha512-HE6RjDh5V7a6empF7Bo4sWaBVwZYUWnDRPWwtUZso9ae6HPWPXM1Oz6bGyy0mKDMObJx4ZLxvW59qyPfUJLVZw==}
+    peerDependencies:
+      svelte: ^4.0.0 || ^5.0.0 || ^5.0.0-next
+    dependencies:
+      svelte: 5.0.0-next.224
     dev: true
 
   /@magicon/hero-icons@0.0.1:
@@ -2821,6 +2832,25 @@ packages:
 
   /svelte@5.0.0-next.136:
     resolution: {integrity: sha512-M3jHAIfWZ7K+hjZdvu2p53ZtWE843yubxJfjxeQw9XiwMYG5z6quCA5u8r23GrxAp20JBl36B6ucbZvLUf0Z/g==}
+    engines: {node: '>=18'}
+    dependencies:
+      '@ampproject/remapping': 2.3.0
+      '@jridgewell/sourcemap-codec': 1.4.15
+      '@types/estree': 1.0.5
+      acorn: 8.11.3
+      acorn-typescript: 1.4.13(acorn@8.11.3)
+      aria-query: 5.3.0
+      axobject-query: 4.0.0
+      esm-env: 1.0.0
+      esrap: 1.2.2
+      is-reference: 3.0.2
+      locate-character: 3.0.0
+      magic-string: 0.30.10
+      zimmerframe: 1.1.2
+    dev: true
+
+  /svelte@5.0.0-next.224:
+    resolution: {integrity: sha512-kIGrBAxOC8GdvumVj4cpt6ujrP6ab8fIJmK23wa1ZYzchA7le+OOqwc/m2uJ552o1+AbeJ2PxRtwHCKD8JeejA==}
     engines: {node: '>=18'}
     dependencies:
       '@ampproject/remapping': 2.3.0

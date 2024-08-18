@@ -19,7 +19,7 @@
 	"homepage": "https://propolies.github.io/magicon/",
 	"scripts": {
 		"dev": "rimraf dist && svelte-package --watch",
-		"build": "rimraf dist && vite build && svelte-package && svelte-kit sync && publint",
+		"build": "rimraf dist && vite build && svelte-kit sync && svelte-package && publint",
 		"test": "cd tests && pnpm test"
 	},
 	"exports": {

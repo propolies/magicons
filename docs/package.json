@@ -12,8 +12,8 @@
 		"lint": "eslint ."
 	},
 	"devDependencies": {
-		"@magicon/core": "0.0.6",
-		"@magicon/hero-icons": "^0.0.1",
+		"@magicon/core": "workspace:^",
+		"@magicon/hero-icons": "workspace:^",
 		"@mdsx/rehype-custom-highlighter": "^0.0.3",
 		"@sveltejs/adapter-static": "^3.0.1",
 		"@sveltejs/kit": "^2.0.0",

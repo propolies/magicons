@@ -43,10 +43,10 @@ importers:
         version: 0.0.3
     devDependencies:
       '@magicon/core':
-        specifier: 0.0.6
+        specifier: workspace:^
         version: link:../packages/core
       '@magicon/hero-icons':
-        specifier: ^0.0.1
+        specifier: workspace:^
         version: link:../packages/hero-icons
       '@mdsx/rehype-custom-highlighter':
         specifier: ^0.0.3

@@ -10,19 +10,22 @@ export function magicon() {
       if (!["ts", "js", "svelte"].includes(ext)) return
 
       const matches = new Set<string>()
-      const s = new MagicString(new MagicString(content, { filename })
-        .prepend(content.includes("<script") ? "" : "<script>\n</script>")
+      let s = new MagicString(new MagicString(content, { filename })
         .replaceAll(/"@hero-(\S*)"/g, ($, icon) => {
           matches.add(icon)
           return icon.replaceAll("-", "_")
         })
         .toString())
-        .replaceAll(/<script([\S\s]*?)>([\S\s]*?)<\/script>/g, (original, $atributes, g) => {
-          const imports = [...matches].map(
-            (icon) => `\n      import ${icon.replaceAll("-", "_")} from '@magicon/hero-icons/${icon}.svg?raw';`
-          ).join("\n")
+
+      const imports = [...matches].map(
+        (icon) => `\n      import ${icon.replaceAll("-", "_")} from '@magicon/hero-icons/${icon}.svg?raw';`
+      ).join("\n")
+
+      s = ext == "svelte"
+        ? s.replaceAll(/<script([\S\s]*?)>([\S\s]*?)<\/script>/g, (original, $atributes, g) => {
           return original.replace(g, imports + "\n" + g)
         })
+        : s.prepend(imports)
 
       return {
         code: s.toString(),

@@ -4,6 +4,7 @@
   import { capitalize } from "$lib/utils"
 
   let { data } = $props()
+  let Component = data.component
 
   const titleId = $derived($page.params.slug.split("/")[1])
   const title = $derived(
@@ -19,13 +20,13 @@
     {data.metadata.description}
   </p>
   <hr>
-  <svelte:component this={data.component} />
+  <Component />
   <hr style="margin-bottom: .8rem;">
   <Navigation />
 </article>
 
 <style>
-  .prose {
-    hr { @apply my-8; }
+  .prose hr {
+    @apply my-8;
   }
 </style>

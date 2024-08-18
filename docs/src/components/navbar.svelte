@@ -1,8 +1,7 @@
 <script lang="ts">
-  import { Menu, X } from "@steeze-ui/lucide-icons"
   import Link from "./link.svelte"
   import Github from "./svg/github.svelte"
-  import { Icon } from "@steeze-ui/svelte-icon"
+  import { Icon } from "@magicon/core"
   import { vault } from "$lib/vault.svelte"
 </script>
 
@@ -14,12 +13,12 @@
   "
 >
   <Link href="/" class="font-bold text-2xl text-white">
-    KAVI
+    Magicon
   </Link>
   <span class="flex gap-5 text-gray-200 items-center">
     <a
       class="hover:text-white transition-all size-6"
-      href="https://github.com/propolies/kavi"
+      href="https://github.com/propolies/magicon"
     >
       <Github />
     </a>
@@ -30,7 +29,7 @@
       }}
       class="hover:text-white sm:hidden block"
     >
-      <Icon src={vault.showVault ? X : Menu} class="size-7" />
+      <Icon src={vault.showVault ? "@hero-XMark" : "@hero-Bars3"} class="size-7 stroke-[1.5px]" />
     </button>
   </span>
 </nav>

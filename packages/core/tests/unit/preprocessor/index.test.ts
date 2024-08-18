@@ -77,4 +77,28 @@ describe('preprocessor should work', () => {
       <Icon src={icon} /> 
     `))
   })
+
+  it("should work in ts/js files", async () => {
+    const res = plugin({
+      content: `
+        import { type Icons } from '@magicon/core'
+
+        function getIcon(): Icons {
+          const bool = true
+          return bool ? "@hero-ChevronDown" : "@hero-ChevronUp"
+        }
+      `,
+      filename: "src/file.ts"
+    })
+    expect(normalise(res?.code)).toEqual(normalise(`
+        import ChevronDown from '@magicon/hero-icons/ChevronDown.svg?raw';
+        import ChevronUp from '@magicon/hero-icons/ChevronUp.svg?raw';
+        import { type Icons } from '@magicon/core'
+
+        function getIcon(): Icons {
+          const bool = true
+          return bool ? ChevronDown : ChevronUp
+        }
+      `))
+  })
 })

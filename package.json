@@ -10,5 +10,6 @@
 		"typescript": "^5.4.5",
 		"typescript-eslint": "^7.12.0"
 	},
-	"type": "module"
+	"type": "module",
+  "private": true
 }

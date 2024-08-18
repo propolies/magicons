@@ -1,15 +1,44 @@
 ---
-description: An end to end typesafe API for SvelteKit
+description: Fast, typesafe Icon wrapper for svelte.
 ---
 
 ## Install
 ```
-npm i kavi zod
+pnpm add @magicon/core @magicon/hero-icons
+```
+Add the preprocessor to svelte
+```ts file=svelte.config.js
+import { magicon } from '@magicon/core/plugins'
+
+const config = {
+  preprocess: [magicon()]
+}
 ```
 
-## What is Kavi?
-Kavi makes it easy to create typesafe APIs in SvelteKit. SvelteKit unfortunately don't support typesafe APIs yet, which is why Kavi was created.
+## What is Magicon?
+Magicon is created to speed up dev-mode and prevent importing each icon individually to stop cold-starts.
 
-Kavi is an easy, simple and lightweight alternative to **tRPC-SvelteKit**. Kavi handles both `+page.server.ts`, `+page.ts` and `+page.svelte` files seamlessly.
+This makes it super easy to **magically** import icons.
 
-The documentation is written with **svelte 5** but **svelte 4** is still supported for now.
+Magicon will look for strings in the form `@hero-` and generate the imports. `const icon = "@hero-ChevronDown"` will become
+
+```ts
+import ChevronDown from '@magicon/hero-icons/ChevronDown.svg?raw'
+
+const icon = ChevronDown
+```
+
+## Usage
+```svelte
+<script lang="ts">
+  import { Icon, type Icon } from '@magicon/core'
+
+  const icon: Icon = "@hero-ChevronDown"
+</script>
+
+<Icon src={icon} class="size-8" />
+```
+It's that simple, for now just make sure to always include brackets. like `src={"@hero-ChevronDown"}` instead of `src="@hero-ChevronDown"`
+
+## Future of Magicon
+Since this is a preprocessor a lot is possible, and a lot can change, if there's a feature or a change that would be nice let me know on github or discord: `propoli`

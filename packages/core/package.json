@@ -1,6 +1,22 @@
 {
 	"name": "@magicon/core",
-	"version": "0.0.0-pre.1",
+	"version": "0.0.5",
+	"description": "Fast, typesafe Icon wrapper for svelte",
+	"keywords": [
+		"icons",
+		"heroicons",
+		"svelte"
+	],
+	"author": {
+		"name": "propolies",
+		"url": "https://github.com/propolies"
+	},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/propolies/magicon.git",
+    "directory": "package"
+  },
+	"homepage": "https://propolies.github.io/magicon/",
 	"scripts": {
 		"dev": "rimraf dist && svelte-package --watch",
 		"build": "rimraf dist && svelte-package && publint",
@@ -9,13 +25,13 @@
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
-      "svelte": "./dist/index.js",
+			"svelte": "./dist/index.js",
 			"import": "./dist/index.js"
 		},
-    "./plugins": {
-      "types": "./dist/plugins/index.d.ts",
+		"./plugins": {
+			"types": "./dist/plugins/index.d.ts",
 			"import": "./dist/plugins/index.js"
-    }
+		}
 	},
 	"files": [
 		"dist",
@@ -23,21 +39,16 @@
 		"!dist/**/*.spec.*"
 	],
 	"peerDependencies": {
-		"svelte": "^5.0.0-next.1"
+		"svelte": "^4.0.0 || ^5.0.0 || ^5.0.0-next"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/package": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
-		"autoprefixer": "^10.4.19",
 		"magic-string": "^0.30.10",
-		"postcss": "^8.4.38",
 		"publint": "^0.1.9",
-		"svelte": "^5.0.0-next.1",
 		"svelte-check": "^3.6.0",
-		"tailwind-merge": "^2.5.2",
-		"tailwindcss": "^3.4.3",
 		"typescript": "^5.0.0",
 		"vite": "^5.0.11"
 	},

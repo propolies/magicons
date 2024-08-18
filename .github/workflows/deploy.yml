@@ -31,14 +31,6 @@ jobs:
         working-directory: "./packages/core"
         run: pnpm build
 
-      - name: Install hero-icons
-        working-directory: "./packages/hero-icons"
-        run: pnpm install
-
-      - name: Build hero-icons
-        working-directory: "./packages/hero-icons"
-        run: pnpm build
-
       - name: Install dependencies
         working-directory: "./docs"
         run: pnpm install

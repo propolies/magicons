@@ -43,7 +43,7 @@ importers:
         version: 0.0.3
     devDependencies:
       '@magicon/core':
-        specifier: 0.0.5
+        specifier: 0.0.6
         version: link:../packages/core
       '@magicon/hero-icons':
         specifier: ^0.0.1

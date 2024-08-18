@@ -53,5 +53,3 @@ for (const size of sizes) {
     }
   }
 }
-
-writeFileSync("../core/src/lib/types.ts", "export type Icons = " + readdirSync(distPath).map((name) => `"@hero-${name.split(".")[0]}"`).join("|"))

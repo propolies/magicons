@@ -1,6 +1,6 @@
 {
 	"name": "@magicon/core",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"description": "Fast, typesafe Icon wrapper for svelte",
 	"keywords": [
 		"icons",
@@ -34,10 +34,6 @@
 	},
 	"files": [
 		"dist",
-    "index.js",
-    "index.d.ts",
-    "plugins.js",
-    "plugins.d.ts",
 		"!dist/**/*.test.*",
 		"!dist/**/*.spec.*"
 	],

@@ -18,7 +18,7 @@ export function magicon() {
         .toString())
 
       const imports = [...matches].map(
-        (icon) => `\n      import ${icon.replaceAll("-", "_")} from '@magicon/hero-icons/${icon}.svg?raw';`
+        (icon) => `\n      import ${icon.replaceAll("-", "_")} from '@magicon/hero-icons/icons/${icon}.svg?raw';`
       ).join("\n")
 
       s = ext == "svelte"

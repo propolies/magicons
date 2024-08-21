@@ -1,4 +1,4 @@
-import fs from "fs"
+import * as fs from "fs"
 import MagicString from "magic-string"
 
 function capitalize(str: string) {

@@ -27,8 +27,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-		"./*.svg": {
-			"default": "./dist/*.svg"
+		"./icons/*.svg": {
+			"default": "./dist/icons/*.svg"
 		},
     "./test.svg": {
       "default": "./dist/test.svg"

@@ -43,12 +43,12 @@ html :has(.body-overflow-hidden) {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  @apply bg-zinc-800 rounded;
+  @apply bg-zinc-800;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  @apply bg-zinc-500 rounded;
+  @apply bg-zinc-500;
 }
 
 /* Handle on hover */

@@ -7,7 +7,9 @@ Fast, typesafe Icon wrapper for **svelte**.
 - Preprocess for instant icons in dev mode
 
 ## Inlcuded Icon packs
--- Heroicons
+- [Hero](https://heroicons.com/) - [npm](https://www.npmjs.com/package/@magicon/hero-icons)
+- [Lucide](https://lucide.dev/icons/) - [npm](https://www.npmjs.com/package/@magicon/lucide-icons)
+- [Logos](https://github.com/gilbarbara/logos) - [npm](https://www.npmjs.com/package/@magicon/logos-icons)
 
 ## Usage
 ```svelte
@@ -19,6 +21,6 @@ Fast, typesafe Icon wrapper for **svelte**.
 <Icon src={icon} class="size-12" />
 ```
 
-All strings matching the pattern `@hero-` will generate the correct imports making this extremely fast.
+For example all strings matching the pattern `@hero-` will generate the correct imports making this extremely fast.
 
 Read more in the [docs](https://propolies.github.io/magicon/docs/getting-started/introduction)

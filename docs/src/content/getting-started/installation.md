@@ -18,3 +18,14 @@ To get the correct Icon types you have to import the providers in `app.d.ts` lik
 ```ts file=app.d.ts
 import '@magicon/core/hero-icons'
 ```
+
+## Supported Icon libraries
+```
+pnpm add @magicon/hero-icons
+```
+```
+pnpm add @magicon/lucide-icons
+```
+```
+pnpm add @magicon/logos-icons
+```

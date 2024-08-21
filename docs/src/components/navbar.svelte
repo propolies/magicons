@@ -29,7 +29,7 @@
       }}
       class="hover:text-white sm:hidden block"
     >
-      <Icon src={vault.showVault ? "@hero-XMark" : "@hero-Bars3"} class="size-7 stroke-[1.5px]" />
+      <Icon src={vault.showVault ? "@hero-XMark" : "@hero-Bars3"} class="size-7" />
     </button>
   </span>
 </nav>

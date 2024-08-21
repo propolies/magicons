@@ -7,8 +7,12 @@ Magicon is created to speed up dev-mode and prevent importing each icon individu
 
 This makes it super easy to **magically** import icons.
 
-Magicon will look for strings in the form `@hero-` and generate the imports. `const icon = "@hero-ChevronDown"` will become
+For example magicon will look for strings in the form 
 
+```ts
+const icon: Icons = "@hero-ChevronDown"
+```
+Into:
 ```ts
 import ChevronDown from '@magicon/hero-icons/ChevronDown.svg?raw'
 

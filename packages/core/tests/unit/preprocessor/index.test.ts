@@ -20,7 +20,7 @@ describe('preprocessor should work', () => {
     })
     expect(normalise(res?.code ?? "")).toEqual(normalise(`
       <script>
-        import ChevronDown from '@magicon/hero-icons/ChevronDown.svg?raw';
+        import ChevronDown from '@magicon/hero-icons/icons/ChevronDown.svg?raw';
         import { Icon } from '@magicon/core'
       </script>
 
@@ -43,7 +43,7 @@ describe('preprocessor should work', () => {
     })
     expect(normalise(res?.code)).toEqual(normalise(`
       <script>
-        import ChevronDown from '@magicon/hero-icons/ChevronDown.svg?raw';
+        import ChevronDown from '@magicon/hero-icons/icons/ChevronDown.svg?raw';
         import { Icon, type Icons } from '@magicon/core'
 
         const icon: Icons = ChevronDown
@@ -68,7 +68,7 @@ describe('preprocessor should work', () => {
     })
     expect(normalise(res?.code)).toEqual(normalise(`
       <script>
-        import ChevronDown_micro from '@magicon/hero-icons/ChevronDown-micro.svg?raw';
+        import ChevronDown_micro from '@magicon/hero-icons/icons/ChevronDown-micro.svg?raw';
         import { Icon, type Icons } from '@magicon/core'
 
         const icon: Icons = ChevronDown_micro
@@ -91,8 +91,8 @@ describe('preprocessor should work', () => {
       filename: "src/file.ts"
     })
     expect(normalise(res?.code)).toEqual(normalise(`
-        import ChevronDown from '@magicon/hero-icons/ChevronDown.svg?raw';
-        import ChevronUp from '@magicon/hero-icons/ChevronUp.svg?raw';
+        import ChevronDown from '@magicon/hero-icons/icons/ChevronDown.svg?raw';
+        import ChevronUp from '@magicon/hero-icons/icons/ChevronUp.svg?raw';
         import { type Icons } from '@magicon/core'
 
         function getIcon(): Icons {
@@ -100,5 +100,26 @@ describe('preprocessor should work', () => {
           return bool ? ChevronDown : ChevronUp
         }
       `))
+  })
+
+  it("should work with other providers", async () => {
+    const res = plugin({
+      content: `
+        <script>
+          import { Icon } from '@magicon/core'
+        </script>
+
+        <Icon src={"@lucide-ChevronDown"} />  
+      `,
+      filename: "src/+page.svelte"
+    })
+    expect(normalise(res?.code ?? "")).toEqual(normalise(`
+      <script>
+        import ChevronDown from '@magicon/lucide-icons/icons/ChevronDown.svg?raw';
+        import { Icon } from '@magicon/core'
+      </script>
+
+      <Icon src={ChevronDown} />
+    `))
   })
 })

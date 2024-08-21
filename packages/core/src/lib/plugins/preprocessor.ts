@@ -19,7 +19,7 @@ export function magicon() {
       const matches: Record<string, [string, string]> = {}
 
       let s = new MagicString(new MagicString(content, { filename })
-        .replaceAll(/"@(hero|lucide)-(\S*)"/g, ($, provider, icon) => {
+        .replaceAll(/"@(hero|lucide|logos)-(\S*)"/g, ($, provider, icon) => {
           addMatch(matches, [icon, provider])
           return icon.replaceAll("-", "_")
         })

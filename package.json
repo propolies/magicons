@@ -1,25 +1,16 @@
 {
-  "author": {
-		"name": "propolies",
-		"url": "https://github.com/propolies"
-	},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/propolies/magicon.git",
-    "directory": "package"
+  "devDependencies": {
+    "@eslint/js": "^9.4.0",
+    "@types/eslint": "^8.56.10",
+    "@types/eslint__js": "^8.42.3",
+    "eslint": "^9.4.0",
+    "eslint-plugin-svelte": "^2.41.0",
+    "globals": "^15.8.0",
+    "rimraf": "^5.0.7",
+    "tsx": "^4.17.0",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.12.0"
   },
-	"devDependencies": {
-		"@eslint/js": "^9.4.0",
-		"@types/eslint": "^8.56.10",
-		"@types/eslint__js": "^8.42.3",
-		"eslint": "^9.4.0",
-		"eslint-plugin-svelte": "^2.41.0",
-		"globals": "^15.8.0",
-		"rimraf": "^5.0.7",
-		"tsx": "^4.17.0",
-		"typescript": "^5.4.5",
-		"typescript-eslint": "^7.12.0"
-	},
-	"type": "module",
-	"private": true
+  "type": "module",
+  "private": true
 }

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon, type Icons } from "@magicon/core"
+  import { Icon } from "@magicon/core"
   import Github from "$lib/components/svg/github.svelte"
   import Link from "$lib/components/link.svelte"
 </script>

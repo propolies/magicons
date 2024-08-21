@@ -50,7 +50,7 @@ importers:
         version: link:../packages/core
       '@magicon/hero-icons':
         specifier: workspace:^
-        version: link:../packages/icons/lucide-icons
+        version: link:../packages/icons/hero-icons
       '@mdsx/rehype-custom-highlighter':
         specifier: ^0.0.3
         version: 0.0.3
@@ -184,8 +184,6 @@ importers:
       magic-string:
         specifier: ^0.30.10
         version: 0.30.11
-
-  packages/hero-icons: {}
 
   packages/icons/hero-icons: {}
 

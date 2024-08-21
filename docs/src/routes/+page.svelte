@@ -23,7 +23,7 @@
       href="/docs/getting-started/introduction"
       class="flex bg-[#348DF2] text-[#001B39] p-2 rounded-sm gap-2"
     >
-      <Icon src={"@hero-BookOpen"} class="w-6 stroke-2" />
+      <Icon src={"@hero-BookOpen"} class="size-6 stroke-2" />
       <p class="font-bold">Documentation</p>
     </Link>
     <a

@@ -43,7 +43,7 @@ function generate({
     types.push(`"@${provider}-${name.split(".")[0]}"`)
     const s = new MagicString(src.toString())
       .prepend(`icon-${name}${theme}$`)
-      .replaceAll(/fill="\S*"/g, () => 'fill="currentColor"')
+      .replaceAll(/fill="\S*"/g, () => "")
       .replaceAll(/stroke="\S*"/g, () => 'stroke="currentColor"')
       .replaceAll(/stroke-width="\S*"/g, () => 'stroke-width="inherit"')
       .replace(/<svg.*>\n/g, () => '')
@@ -53,7 +53,7 @@ function generate({
 
   fs.writeFileSync(typePath, `
     declare global {
-      var HeroIcons: ${types.join("|")};
+      var ${CamelCase(provider)}Icons: ${types.join("|")};
     }
 
     export {}

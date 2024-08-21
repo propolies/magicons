@@ -1,4 +1,11 @@
+import { match } from 'assert'
 import MagicString from 'magic-string'
+
+function addMatch(matches: Record<string, [string, string]>, match: [string, string]) {
+  const key = match.join(".")
+  if (matches[key]) return
+  matches[key] = match
+}
 
 export function magicon() {
   return {
@@ -9,16 +16,17 @@ export function magicon() {
       if (!filename.includes("src")) return
       if (!["ts", "js", "svelte"].includes(ext)) return
 
-      const matches = new Set<string>()
+      const matches: Record<string, [string, string]> = {}
+
       let s = new MagicString(new MagicString(content, { filename })
-        .replaceAll(/"@hero-(\S*)"/g, ($, icon) => {
-          matches.add(icon)
+        .replaceAll(/"@(hero|lucide)-(\S*)"/g, ($, provider, icon) => {
+          addMatch(matches, [icon, provider])
           return icon.replaceAll("-", "_")
         })
         .toString())
 
-      const imports = [...matches].map(
-        (icon) => `\n      import ${icon.replaceAll("-", "_")} from '@magicon/hero-icons/icons/${icon}.svg?raw';`
+      const imports = Object.values(matches).map(
+        ([icon, provider]) => `\n      import ${icon.replaceAll("-", "_")} from '@magicon/${provider}-icons/icons/${icon}.svg?raw';`
       ).join("\n")
 
       s = ext == "svelte"

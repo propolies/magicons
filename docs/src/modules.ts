@@ -1,7 +1,7 @@
-import type { ComponentType } from "svelte"
+import type { Component } from "svelte"
 
 type Modules = Record<string, () => Promise<{
-  default: ComponentType,
+  default: Component,
   metadata: {
     title: string,
     description: string

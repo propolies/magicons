@@ -2,7 +2,6 @@
   "name": "@magicon/hero-icons",
   "version": "0.0.1",
   "description": "generated heroicons for magicon",
-  "main": "index.js",
   "author": {
     "name": "propolies",
     "url": "https://github.com/propolies"
@@ -15,7 +14,7 @@
   "homepage": "https://propolies.github.io/magicon/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": ""
+    "build": "tsc && cd ../generator && tsx test.ts"
   },
   "files": [
 		"dist",
@@ -23,6 +22,10 @@
 		"!dist/**/*.spec.*"
 	],
   "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
 		"./*.svg": {
 			"default": "./dist/*.svg"
 		},
@@ -31,5 +34,7 @@
     }
 	},
   "keywords": [],
-  "license": "ISC"
+  "license": "ISC",
+  "type": "module",
+  "types": "./dist/index.d.ts"
 }

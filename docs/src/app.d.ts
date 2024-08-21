@@ -1,3 +1,4 @@
+import '$lib/components/icons/types'
 import '@magicon/hero-icons'
 import '@magicon/core'
 

@@ -23,17 +23,21 @@ jobs:
           node-version: 20
           cache: pnpm
 
-      - name: Install magicon
-        working-directory: "./packages/core"
+      - name: Install dependencies
+        working-directory: "./docs"
         run: pnpm install
 
       - name: Build magicon
         working-directory: "./packages/core"
         run: pnpm build
+      
+      - name: Build generator
+        working-directory: "./packages/generator"
+        run: pnpm build
 
-      - name: Install dependencies
-        working-directory: "./docs"
-        run: pnpm install
+      - name: Build heroicons
+        working-directory: "./packages/hero-icons"
+        run: pnpm build
 
       - name: build
         working-directory: "./docs"

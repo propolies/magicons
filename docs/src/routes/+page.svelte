@@ -2,12 +2,6 @@
   import { Icon, type Icons } from "@magicon/core"
   import Github from "$lib/components/svg/github.svelte"
   import Link from "$lib/components/link.svelte"
-
-  import "@magicon/hero-icons"
-  import "@magicon/core"
-  globalThis.HeroIcons
-  globalThis.test
-  globalThis.test2
 </script>
 
 <div class="text-white flex flex-col items-center mt-24 p-6">

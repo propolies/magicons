@@ -1,10 +1,4 @@
-import {
-  readdirSync,
-  mkdirSync,
-  rmSync,
-  writeFileSync,
-  readFileSync
-} from "fs"
+import fs from "fs"
 import MagicString from "magic-string"
 
 function capitalize(str: string) {
@@ -15,41 +9,53 @@ function CamelCase(str: string) {
   return str.split("-").map(capitalize).join("")
 }
 
-const path = "../hero-icons"
-const distPath = path + "/dist"
+function generate({
+  provider,
+  path,
+  getIcons
+}: {
+  provider: string,
+  path: string,
+  getIcons: ($fs: typeof fs) => {
+    filename: string,
+    theme: `-${string}` | "",
+    src: string
+  }[]
+}) {
 
-const sizes = ["16", "20", "24"]
+  const distPath = path + "/dist"
+  const iconsPath = distPath + "/icons"
+  const typePath = distPath + "/index.d.ts"
+  const types: string[] = []
 
-rmSync(distPath, {
-  recursive: true,
-  force: true
-})
-mkdirSync(distPath)
+  fs.rmSync(iconsPath, {
+    recursive: true,
+    force: true
+  })
+  fs.mkdirSync(iconsPath)
 
-const themeMap = {
-  16: "-micro",
-  20: "-mini",
-  24: ""
+  for (const { filename, theme, src } of getIcons(fs)) {
+    const name = CamelCase(filename.split(".svg")[0])
+    types.push(`"@${provider}-${name.split(".")[0]}"`)
+    const s = new MagicString(src.toString())
+      .prepend(`icon-${name}${theme}$`)
+      .replaceAll(/fill="\S*"/g, () => 'fill="currentColor"')
+      .replaceAll(/stroke="\S*"/g, () => 'stroke="currentColor"')
+      .replaceAll(/stroke-width="\S*"/g, () => 'stroke-width="inherit"')
+      .replace(/<svg.*>\n/g, () => '')
+      .replace(/<\/svg>/g, () => '')
+    fs.writeFileSync(`${iconsPath}/${name}${theme}.svg`, s.toString())
+  }
+
+  fs.writeFileSync(typePath, `
+    declare global {
+      var HeroIcons: ${types.join("|")};
+    }
+
+    export {}
+  `)
 }
 
-for (const size of sizes) {
-  const themesPath = `${path}/svgs/${size}`
-  const themes = readdirSync(themesPath)
-  for (const theme of themes) {
-    const names = readdirSync(`${themesPath}/${theme}`)
-    for (const name of names) {
-      const res = readFileSync(`${themesPath}/${theme}/${name}`)
-      const icon = name.split(".svg")[0]
-      const Icon = CamelCase(icon)
-      const id = `${themeMap[size]}${(size !== "24" || theme == "outline") ? "" : "-" + theme}`
-      const s = new MagicString(res.toString())
-        .prepend("icon-" + Icon + id + "$")
-        .replaceAll(/fill="\S*"/g, () => 'fill="currentColor"')
-        .replaceAll(/stroke="\S*"/g, () => 'stroke="currentColor"')
-        .replaceAll(/stroke-width="\S*"/g, () => 'stroke="inherit"')
-        .replace(/<svg.*>\n/g, () => '')
-        .replace(/<\/svg>/g, () => '')
-      writeFileSync(`${distPath}/${Icon}${id}.svg`, s.toString())
-    }
-  }
+export {
+  generate
 }

@@ -21,12 +21,12 @@ export function magicon() {
       let s = new MagicString(new MagicString(content, { filename })
         .replaceAll(/"@(hero|lucide|logos)-(\S*)"/g, ($, provider, icon) => {
           addMatch(matches, [icon, provider])
-          return icon.replaceAll("-", "_")
+          return `${provider}_${icon.replaceAll("-", "_")}`
         })
         .toString())
 
       const imports = Object.values(matches).map(
-        ([icon, provider]) => `\n      import ${icon.replaceAll("-", "_")} from '@magicon/${provider}-icons/icons/${icon}.svg?raw';`
+        ([icon, provider]) => `\n      import ${provider}_${icon.replaceAll("-", "_")} from '@magicon/${provider}-icons/icons/${icon}.svg?raw';`
       ).join("\n")
 
       s = ext == "svelte"

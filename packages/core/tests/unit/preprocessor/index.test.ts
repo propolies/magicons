@@ -20,11 +20,34 @@ describe('preprocessor should work', () => {
     })
     expect(normalise(res?.code ?? "")).toEqual(normalise(`
       <script>
-        import ChevronDown from '@magicon/hero-icons/icons/ChevronDown.svg?raw';
+        import hero_ChevronDown from '@magicon/hero-icons/icons/ChevronDown.svg?raw';
         import { Icon } from '@magicon/core'
       </script>
 
-      <Icon src={ChevronDown} />
+      <Icon src={hero_ChevronDown} />
+    `))
+  })
+
+  it("should work with duplicate icons", async () => {
+    const res = plugin({
+      content: `
+        <script>
+          import { Icon } from '@magicon/core'
+        </script>
+
+        <Icon src={"@hero-ChevronDown"} />  
+        <Icon src={"@hero-ChevronDown"} />  
+      `,
+      filename: "src/+page.svelte"
+    })
+    expect(normalise(res?.code ?? "")).toEqual(normalise(`
+      <script>
+        import hero_ChevronDown from '@magicon/hero-icons/icons/ChevronDown.svg?raw';
+        import { Icon } from '@magicon/core'
+      </script>
+
+      <Icon src={hero_ChevronDown} />
+      <Icon src={hero_ChevronDown} />
     `))
   })
 
@@ -43,10 +66,10 @@ describe('preprocessor should work', () => {
     })
     expect(normalise(res?.code)).toEqual(normalise(`
       <script>
-        import ChevronDown from '@magicon/hero-icons/icons/ChevronDown.svg?raw';
+        import hero_ChevronDown from '@magicon/hero-icons/icons/ChevronDown.svg?raw';
         import { Icon, type Icons } from '@magicon/core'
 
-        const icon: Icons = ChevronDown
+        const icon: Icons = hero_ChevronDown
       </script>
 
       <Icon src={icon} /> 
@@ -68,10 +91,10 @@ describe('preprocessor should work', () => {
     })
     expect(normalise(res?.code)).toEqual(normalise(`
       <script>
-        import ChevronDown_micro from '@magicon/hero-icons/icons/ChevronDown-micro.svg?raw';
+        import hero_ChevronDown_micro from '@magicon/hero-icons/icons/ChevronDown-micro.svg?raw';
         import { Icon, type Icons } from '@magicon/core'
 
-        const icon: Icons = ChevronDown_micro
+        const icon: Icons = hero_ChevronDown_micro
       </script>
 
       <Icon src={icon} /> 
@@ -91,13 +114,13 @@ describe('preprocessor should work', () => {
       filename: "src/file.ts"
     })
     expect(normalise(res?.code)).toEqual(normalise(`
-        import ChevronDown from '@magicon/hero-icons/icons/ChevronDown.svg?raw';
-        import ChevronUp from '@magicon/hero-icons/icons/ChevronUp.svg?raw';
+        import hero_ChevronDown from '@magicon/hero-icons/icons/ChevronDown.svg?raw';
+        import hero_ChevronUp from '@magicon/hero-icons/icons/ChevronUp.svg?raw';
         import { type Icons } from '@magicon/core'
 
         function getIcon(): Icons {
           const bool = true
-          return bool ? ChevronDown : ChevronUp
+          return bool ? hero_ChevronDown : hero_ChevronUp
         }
       `))
   })
@@ -115,11 +138,35 @@ describe('preprocessor should work', () => {
     })
     expect(normalise(res?.code ?? "")).toEqual(normalise(`
       <script>
-        import ChevronDown from '@magicon/lucide-icons/icons/ChevronDown.svg?raw';
+        import lucide_ChevronDown from '@magicon/lucide-icons/icons/ChevronDown.svg?raw';
         import { Icon } from '@magicon/core'
       </script>
 
-      <Icon src={ChevronDown} />
+      <Icon src={lucide_ChevronDown} />
+    `))
+  })
+
+  it("should work with the same icons", async () => {
+    const res = plugin({
+      content: `
+        <script>
+          import { Icon } from '@magicon/core'
+        </script>
+
+        <Icon src={"@hero-ChevronDown"} />  
+        <Icon src={"@lucide-ChevronDown"} />  
+      `,
+      filename: "src/+page.svelte"
+    })
+    expect(normalise(res?.code ?? "")).toEqual(normalise(`
+      <script>
+        import hero_ChevronDown from '@magicon/hero-icons/icons/ChevronDown.svg?raw';
+        import lucide_ChevronDown from '@magicon/lucide-icons/icons/ChevronDown.svg?raw';
+        import { Icon } from '@magicon/core'
+      </script>
+
+      <Icon src={hero_ChevronDown} />
+      <Icon src={lucide_ChevronDown} />
     `))
   })
 })

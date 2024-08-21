@@ -9,13 +9,17 @@ function CamelCase(str: string) {
   return str.split("-").map(capitalize).join("")
 }
 
+function generateSvg(icons: {[key: string]: { body: string }}) {
+  Object.entries(icons).forEach(([name, src]) => {
+    fs.writeFileSync(`./svgs/${name}.svg`, src.body)
+  })
+}
+
 function generate({
   provider,
-  path,
   getIcons
 }: {
   provider: string,
-  path: string,
   getIcons: ($fs: typeof fs) => {
     filename: string,
     theme: `-${string}` | "",
@@ -23,7 +27,7 @@ function generate({
   }[]
 }) {
 
-  const distPath = path + "/dist"
+  const distPath = "./dist"
   const iconsPath = distPath + "/icons"
   const typePath = distPath + "/index.d.ts"
   const types: string[] = []
@@ -57,5 +61,6 @@ function generate({
 }
 
 export {
-  generate
+  generate,
+  generateSvg
 }

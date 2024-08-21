@@ -4,7 +4,7 @@
   import { capitalize } from "$lib/utils"
 
   let { data } = $props()
-  let Component = data.component
+  let Component = $derived(data.component)
 
   const titleId = $derived($page.params.slug.split("/")[1])
   const title = $derived(

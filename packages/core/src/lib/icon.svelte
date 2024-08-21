@@ -6,7 +6,7 @@
   let className = ""
   export { className as class }
 
-  $: [id, path] = src.split("$")
+  $: [id, path] = (src as string).split("$")
   $: theme = (() => {
     const [isIcon, $icon, theme] = id.split("-")
     if (!isIcon) {
@@ -24,7 +24,12 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
   fill="none"
+  stroke-width="1.5px"
+  width="1.5rem"
+  height="1.5rem"
   viewBox={viewBoxes[theme] ?? "0 0 24 24"}
+  stroke-linecap="round"
+  stroke-linejoin="round"
   class={className}
   {style}
 >

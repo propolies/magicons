@@ -1,4 +1,13 @@
 {
+  "author": {
+		"name": "propolies",
+		"url": "https://github.com/propolies"
+	},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/propolies/magicon.git",
+    "directory": "package"
+  },
 	"devDependencies": {
 		"@eslint/js": "^9.4.0",
 		"@types/eslint": "^8.56.10",

@@ -36,7 +36,7 @@ jobs:
         run: pnpm build
 
       - name: Build heroicons
-        working-directory: "./packages/hero-icons"
+        working-directory: "./packages/icons/hero-icons"
         run: pnpm build
 
       - name: build

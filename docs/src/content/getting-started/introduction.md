@@ -2,19 +2,6 @@
 description: Fast, typesafe Icon wrapper for svelte.
 ---
 
-## Install
-```
-pnpm add @magicon/core @magicon/hero-icons
-```
-Add the preprocessor to svelte
-```ts file=svelte.config.js
-import { magicon } from '@magicon/core/plugins'
-
-const config = {
-  preprocess: [magicon()]
-}
-```
-
 ## What is Magicon?
 Magicon is created to speed up dev-mode and prevent importing each icon individually to stop cold-starts.
 

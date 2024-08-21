@@ -4,8 +4,10 @@ Fast, typesafe Icon wrapper for **svelte**.
 
 ## Features
 - Tailwindcss support
-- Heroicons
 - Preprocess for instant icons in dev mode
+
+## Inlcuded Icon packs
+-- Heroicons
 
 ## Usage
 ```svelte

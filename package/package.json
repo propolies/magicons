@@ -1,0 +1,34 @@
+{
+  "name": "@magicons/core",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "scripts": {
+    "dev": "rimraf dist && svelte-package --watch",
+    "build": "rimraf dist && svelte-package && publint",
+    "test": "cd tests && pnpm test"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js"
+    },
+    "./plugins": {
+      "types": "./dist/plugins/index.d.ts",
+      "import": "./dist/plugins/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "ISC",
+  "peerDependencies": {
+    "svelte": "^4.0.0 || ^5.0.0 || ^5.0.0-next"
+  },
+  "devDependencies": {
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/package": "^2.0.0",
+    "magic-string": "^0.30.10",
+    "publint": "^0.1.16"
+  },
+  "type": "module"
+}

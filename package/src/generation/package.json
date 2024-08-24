@@ -1,0 +1,12 @@
+{
+  "name": "generation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "ISC",
+  "devDependencies": {
+    "@iconify-json/heroicons": "^1.1.24",
+    "@iconify-json/lucide": "^1.1.208",
+    "magic-string": "^0.30.10"
+  },
+  "type": "module"
+}

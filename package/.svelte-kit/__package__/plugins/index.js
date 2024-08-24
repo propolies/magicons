@@ -1,12 +1,20 @@
 import MagicString from 'magic-string';
-var providerRegex = new RegExp('"@(hero|lucide|logos)-(\\S*)"', "g");
+import { providers } from '../providers.js';
+var providerRegex = new RegExp("\"@(".concat(providers.join("|"), ")-(\\S*)\""), "g");
 function addMatch(matches, match) {
     var key = match.join(".");
     if (matches[key])
         return;
     matches[key] = match;
 }
-export function magicon() {
+function replaceAll(s) {
+    var rest = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        rest[_i - 1] = arguments[_i];
+    }
+    return new MagicString(s.replaceAll.apply(s, rest).toString());
+}
+export function magicons() {
     return {
         name: "magicon preprocessor",
         markup: function (_a) {
@@ -19,15 +27,17 @@ export function magicon() {
             if (!["ts", "js", "svelte"].includes(ext))
                 return;
             var matches = {};
-            var s = new MagicString(new MagicString(content, { filename: filename })
-                .replaceAll(providerRegex, function ($, provider, icon) {
+            var s = new MagicString(content, { filename: filename });
+            s = replaceAll(s, /^(?!const|let|var).*src=("@\S*-\S*").*$/gm, function (original, g) {
+                return original.replace(g, "{".concat(g, "}"));
+            });
+            s = replaceAll(s, providerRegex, function ($, provider, icon) {
                 addMatch(matches, [icon, provider]);
                 return "".concat(provider, "_").concat(icon.replaceAll("-", "_"));
-            })
-                .toString());
+            });
             var imports = Object.values(matches).map(function (_a) {
                 var icon = _a[0], provider = _a[1];
-                return "\n      import ".concat(provider, "_").concat(icon.replaceAll("-", "_"), " from '@magicons/").concat(provider, "-icons/icons/").concat(icon, ".svg?raw';");
+                return "\n      import ".concat(provider, "_").concat(icon.replaceAll("-", "_"), " from '@magicons/").concat(provider, "-icons/icons/").concat(icon, ".js';");
             }).join("\n");
             s = ext == "svelte"
                 ? s.replaceAll(/<script([\S\s]*?)>([\S\s]*?)<\/script>/g, function (original, $atributes, g) {

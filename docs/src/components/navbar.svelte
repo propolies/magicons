@@ -1,7 +1,7 @@
 <script lang="ts">
   import Link from "./link.svelte"
   import Github from "./svg/github.svelte"
-  import { Icon } from "@magicon/core"
+  // import { Icon } from "@magicon/core"
   import { vault } from "$lib/vault.svelte"
 </script>
 
@@ -29,7 +29,7 @@
       }}
       class="hover:text-white sm:hidden block"
     >
-      <Icon src={vault.showVault ? "@hero-XMark" : "@hero-Bars3"} class="size-7" />
+      <!-- <Icon src={vault.showVault ? "@hero-XMark" : "@hero-Bars3"} class="size-7" /> -->
     </button>
   </span>
 </nav>

@@ -1,3 +1,4 @@
+import type { Icons } from './types.js';
 interface $$__sveltets_2_IsomorphicComponent<Props extends Record<string, any> = any, Events extends Record<string, any> = any, Slots extends Record<string, any> = any, Exports = {}, Bindings = string> {
     new (options: import('svelte').ComponentConstructorOptions<Props>): import('svelte').SvelteComponent<Props, Events, Slots> & {
         $$bindings?: Bindings;
@@ -13,7 +14,7 @@ interface $$__sveltets_2_IsomorphicComponent<Props extends Record<string, any> =
 }
 declare const Icon: $$__sveltets_2_IsomorphicComponent<{
     style?: string;
-    src: "";
+    src: Icons;
     class?: string;
 }, {
     [evt: string]: CustomEvent<any>;

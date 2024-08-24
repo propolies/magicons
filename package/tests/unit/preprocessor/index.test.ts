@@ -1,8 +1,8 @@
 /* eslint @typescript-eslint/no-explicit-any: 0 */
 import { describe, expect, it } from 'vitest'
-import { magicon } from '@magicons/core/plugins'
+import { magicons } from '@magicons/core/plugins'
 
-const plugin = magicon().markup
+const plugin = magicons().markup
 const normalise = (s: string = "") => s?.replaceAll("\n", "").replace(/\s\s+/g, ' ')
 
 describe('preprocessor should work with svelte', () => {
@@ -19,7 +19,7 @@ describe('preprocessor should work with svelte', () => {
     })
     expect(normalise(res?.code)).toEqual(normalise(`
       <script>
-        import hero_ChevronDown from '@magicons/hero-icons/icons/ChevronDown.svg?raw';
+        import hero_ChevronDown from '@magicons/hero-icons/icons/ChevronDown.js';
         import { Icon } from '@magicons/core'
       </script>
 
@@ -42,7 +42,7 @@ describe('preprocessor should work with svelte', () => {
     })
     expect(normalise(res?.code)).toEqual(normalise(`
       <script>
-        import hero_ChevronDown from '@magicons/hero-icons/icons/ChevronDown.svg?raw';
+        import hero_ChevronDown from '@magicons/hero-icons/icons/ChevronDown.js';
         import { Icon, type Icons } from '@magicons/core'
 
         const icon: Icons = hero_ChevronDown
@@ -62,7 +62,7 @@ describe("preprocessor should work", () => {
       filename: "src/file.ts"
     })
     expect(normalise(res?.code)).toEqual(normalise(`
-      import hero_ChevronDown from '@magicons/hero-icons/icons/ChevronDown.svg?raw';
+      import hero_ChevronDown from '@magicons/hero-icons/icons/ChevronDown.js';
       hero_ChevronDown hero_ChevronDown
     `))
   })
@@ -75,7 +75,7 @@ describe("preprocessor should work", () => {
       filename: "src/file.ts"
     })
     expect(normalise(res?.code)).toEqual(normalise(`
-      import hero_ChevronDown_micro from '@magicons/hero-icons/icons/ChevronDown-micro.svg?raw';
+      import hero_ChevronDown_micro from '@magicons/hero-icons/icons/ChevronDown-micro.js';
       const icon = hero_ChevronDown_micro
     `))
   })
@@ -88,7 +88,7 @@ describe("preprocessor should work", () => {
       filename: "src/file.ts"
     })
     expect(normalise(res?.code)).toEqual(normalise(`
-      import lucide_ChevronDown from '@magicons/lucide-icons/icons/ChevronDown.svg?raw';
+      import lucide_ChevronDown from '@magicons/lucide-icons/icons/ChevronDown.js';
       lucide_ChevronDown
     `))
   })
@@ -101,9 +101,22 @@ describe("preprocessor should work", () => {
       filename: "src/file.ts"
     })
     expect(normalise(res?.code)).toEqual(normalise(`
-      import hero_ChevronDown from '@magicons/hero-icons/icons/ChevronDown.svg?raw';
-      import lucide_ChevronDown from '@magicons/lucide-icons/icons/ChevronDown.svg?raw';
+      import hero_ChevronDown from '@magicons/hero-icons/icons/ChevronDown.js';
+      import lucide_ChevronDown from '@magicons/lucide-icons/icons/ChevronDown.js';
       hero_ChevronDown lucide_ChevronDown
+    `))
+  })
+
+  it("should work with plain string", async () => {
+    const res = plugin({
+      content: `
+        <Icon src="@hero-ChevronDown" />
+      `,
+      filename: "src/file.ts"
+    })
+    expect(normalise(res?.code)).toEqual(normalise(`
+      import hero_ChevronDown from '@magicons/hero-icons/icons/ChevronDown.js';
+      <Icon src={hero_ChevronDown} />
     `))
   })
 })

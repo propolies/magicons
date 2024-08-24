@@ -1,4 +1,4 @@
-export declare function magicon(): {
+export declare function magicons(): {
     name: string;
     markup: ({ content, filename }: {
         content: string;

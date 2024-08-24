@@ -1,4 +1,3 @@
-import { match } from 'assert'
 import MagicString from 'magic-string'
 import { providers } from '../providers.js'
 
@@ -10,7 +9,11 @@ function addMatch(matches: Record<string, [string, string]>, match: [string, str
   matches[key] = match
 }
 
-export function magicon() {
+function replaceAll(s: MagicString, ...rest: Parameters<MagicString["replaceAll"]>) {
+  return new MagicString(s.replaceAll(...rest).toString())
+}
+
+export function magicons() {
   return {
     name: "magicon preprocessor",
     markup: ({ content, filename }: { content: string, filename: string }) => {
@@ -21,15 +24,18 @@ export function magicon() {
 
       const matches: Record<string, [string, string]> = {}
 
-      let s = new MagicString(new MagicString(content, { filename })
-        .replaceAll(providerRegex, ($, provider, icon) => {
-          addMatch(matches, [icon, provider])
-          return `${provider}_${icon.replaceAll("-", "_")}`
-        })
-        .toString())
+
+      let s = new MagicString(content, { filename })
+      s = replaceAll(s, /^(?!const|let|var).*src=("@\S*-\S*").*$/gm, (original, g) => {
+        return original.replace(g, `{${g}}`)
+      })
+      s = replaceAll(s, providerRegex, ($, provider, icon) => {
+        addMatch(matches, [icon, provider])
+        return `${provider}_${icon.replaceAll("-", "_")}`
+      })
 
       const imports = Object.values(matches).map(
-        ([icon, provider]) => `\n      import ${provider}_${icon.replaceAll("-", "_")} from '@magicons/${provider}-icons/icons/${icon}.svg?raw';`
+        ([icon, provider]) => `\n      import ${provider}_${icon.replaceAll("-", "_")} from '@magicons/${provider}-icons/icons/${icon}.js';`
       ).join("\n")
 
       s = ext == "svelte"

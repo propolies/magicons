@@ -1,0 +1,37 @@
+{
+  "name": "@magicons/lucide-icons",
+  "version": "0.0.0",
+  "description": "generated hero-icons for magicon",
+  "author": {
+    "name": "propolies",
+    "url": "https://github.com/propolies"
+  },
+  "main": "./dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/propolies/magicons.git",
+    "directory": "package"
+  },
+  "homepage": "https://propolies.github.io/magicons/",
+  "scripts": {
+    "build": "tsc && tsx generate"
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/*.spec.*"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./icons/*.js": {
+      "default": "./dist/icons/*.js"
+    }
+  },
+  "keywords": [],
+  "license": "ISC",
+  "type": "module",
+  "types": "./dist/index.d.ts"
+}

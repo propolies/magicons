@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon } from "@magicon/core"
+  import { Icon } from "@magicons/core"
   import Github from "$lib/components/svg/github.svelte"
   import Link from "$lib/components/link.svelte"
 </script>
@@ -23,7 +23,8 @@
       href="/docs/getting-started/introduction"
       class="flex bg-[#348DF2] text-[#001B39] p-2 rounded-sm gap-2"
     >
-      <Icon src={"@hero-BookOpen"} class="size-6 stroke-2" />
+      <Icon src="@hero-BookOpen" />
+      <!-- <Icon src={"@hero-BookOpen"} class="size-6 stroke-2" /> -->
       <p class="font-bold">Documentation</p>
     </Link>
     <a

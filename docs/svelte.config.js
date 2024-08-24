@@ -1,4 +1,4 @@
-import { magicon } from '@magicon/core/plugins'
+import { magicons } from '@magicons/core/plugins'
 import adapter from '@sveltejs/adapter-static'
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 import { mdsx } from 'mdsx'
@@ -16,7 +16,7 @@ const entries = readdirSync(__dirname + "/src/content")
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  preprocess: [magicon(), mdsx(mdsxConfig), baseurl(), vitePreprocess()],
+  preprocess: [magicons(), mdsx(mdsxConfig), baseurl(), vitePreprocess()],
   extensions: ['.svelte', '.md'],
   kit: {
     adapter: adapter(),

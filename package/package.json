@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "rimraf dist && svelte-package --watch",
     "build": "rimraf dist && svelte-package && publint",
+    "generate": "tsx ./src/generation/index.ts",
     "test": "cd tests && pnpm test"
   },
   "exports": {

@@ -41,10 +41,13 @@ importers:
 
   docs:
     dependencies:
-      svelte-outside:
-        specifier: ^0.0.3
-        version: 0.0.3
+      '@magicons/hero-icons':
+        specifier: workspace:^
+        version: link:../icons/hero
     devDependencies:
+      '@magicons/core':
+        specifier: workspace:^
+        version: link:../package
       '@mdsx/rehype-custom-highlighter':
         specifier: ^0.0.3
         version: 0.0.3
@@ -99,6 +102,9 @@ importers:
       svelte-check:
         specifier: ^3.6.0
         version: 3.8.5(postcss@8.4.41)(svelte@5.0.0-next.224)
+      svelte-outside:
+        specifier: ^0.0.3
+        version: 0.0.3
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.10
@@ -118,6 +124,10 @@ importers:
         specifier: ^5.0.3
         version: 5.4.1
 
+  icons/hero: {}
+
+  icons/lucide: {}
+
   package:
     dependencies:
       svelte:
@@ -136,6 +146,18 @@ importers:
       publint:
         specifier: ^0.1.16
         version: 0.1.16
+
+  package/src/generation:
+    devDependencies:
+      '@iconify-json/heroicons':
+        specifier: ^1.1.24
+        version: 1.1.24
+      '@iconify-json/lucide':
+        specifier: ^1.1.208
+        version: 1.1.208
+      magic-string:
+        specifier: ^0.30.10
+        version: 0.30.11
 
   package/tests:
     devDependencies:
@@ -775,8 +797,20 @@ packages:
     engines: {node: '>=18.18'}
     dev: true
 
+  /@iconify-json/heroicons@1.1.24:
+    resolution: {integrity: sha512-Axd6nxsEeQMpuK8ugkAkJ1kS6cbmgXX1s1+Z6NbANvtgtNTBIx9bLQcEL6loKjxpfktDXERElrR5G6xzWOqysg==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
   /@iconify-json/logos@1.1.44:
     resolution: {integrity: sha512-sIc355/sSq4GihU4eFTDVbXoeg2rZD3yH6tNOJTNouDu9Fx259BSWH+XEEQwm/YImDIllcGqmJuNBjAu4UVs2g==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/lucide@1.1.208:
+    resolution: {integrity: sha512-wdlljQKeoqmIw3YcYMCObPvuB3Gc0vbb0tocULrb0isl7wqINlHmcCAbL2mtLbHmwbldtW25AsplB6H56njPoA==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
@@ -4030,7 +4064,7 @@ packages:
 
   /svelte-outside@0.0.3:
     resolution: {integrity: sha512-4mJttaDRXkBBL+8JqjfA1P5Ny64qmkZL3x5zELAW3tqehic3LLHvPNDcGAk8PVRooM2qUym9Oz3TfA9lO4OctA==}
-    dev: false
+    dev: true
 
   /svelte-preprocess@5.1.4(postcss@8.4.41)(svelte@4.2.18)(typescript@5.5.4):
     resolution: {integrity: sha512-IvnbQ6D6Ao3Gg6ftiM5tdbR6aAETwjhHV+UKGf5bHGYR69RQvF1ho0JKPcbUON4vy4R7zom13jPjgdOWCQ5hDA==}

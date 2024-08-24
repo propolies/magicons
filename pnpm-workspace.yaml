@@ -1,7 +1,4 @@
 packages:
-  - "./packages/**"
+  - "./icons/**"
   - "./package/**"
-  - "./example/**"
   - "./docs/**"
-  - "./tests**"
-  - "./test"

@@ -1,5 +1,5 @@
 ---
-description: Custom icons in magicon.
+description: Custom icons in magicons.
 ---
 
 Coming soon.

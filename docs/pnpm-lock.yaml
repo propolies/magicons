@@ -4,18 +4,13 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-dependencies:
-  svelte-outside:
-    specifier: ^0.0.3
-    version: 0.0.3
-
 devDependencies:
-  '@magicon/core':
-    specifier: 0.0.6
-    version: 0.0.6(svelte@5.0.0-next.224)
-  '@magicon/hero-icons':
-    specifier: ^0.0.1
-    version: 0.0.1
+  '@magicons/core':
+    specifier: ^
+    version: 0.0.2(svelte@5.0.0-next.224)
+  '@magicons/hero-icons':
+    specifier: ^
+    version: 0.0.3
   '@mdsx/rehype-custom-highlighter':
     specifier: ^0.0.3
     version: 0.0.3
@@ -70,6 +65,9 @@ devDependencies:
   svelte-check:
     specifier: ^3.6.0
     version: 3.8.5(postcss@8.4.41)(svelte@5.0.0-next.224)
+  svelte-outside:
+    specifier: ^0.0.3
+    version: 0.0.3
   tailwindcss:
     specifier: ^3.4.3
     version: 3.4.10
@@ -412,16 +410,16 @@ packages:
       '@jridgewell/sourcemap-codec': 1.5.0
     dev: true
 
-  /@magicon/core@0.0.6(svelte@5.0.0-next.224):
-    resolution: {integrity: sha512-HE6RjDh5V7a6empF7Bo4sWaBVwZYUWnDRPWwtUZso9ae6HPWPXM1Oz6bGyy0mKDMObJx4ZLxvW59qyPfUJLVZw==}
+  /@magicons/core@0.0.2(svelte@5.0.0-next.224):
+    resolution: {integrity: sha512-Uwc2gqB3y97e/YK1R0uATfu71GoojSX0hRk697qiuNeTx0pOFTncpd0iMhW0YfRL1EZjbNqUDadn3XPFoAlOTQ==}
     peerDependencies:
       svelte: ^4.0.0 || ^5.0.0 || ^5.0.0-next
     dependencies:
       svelte: 5.0.0-next.224
     dev: true
 
-  /@magicon/hero-icons@0.0.1:
-    resolution: {integrity: sha512-LxBYvetK3eidOoqHM1htX33u9jUmn/haGXWhcjg+9yp2G44/pwkMGWD3wd3G+xwhJulEAmQINlpYrlf6vwZVVA==}
+  /@magicons/hero-icons@0.0.3:
+    resolution: {integrity: sha512-2C1JFuNqj1rNzmbJLoeqOKDpqOJAafS8xo6UzuvFZgq4l0AevKj20Zl272WwgFoyC3Gt4VcstvNsbqT+Ae0bxw==}
     dev: true
 
   /@mdsx/rehype-custom-highlighter@0.0.3:
@@ -2788,7 +2786,7 @@ packages:
 
   /svelte-outside@0.0.3:
     resolution: {integrity: sha512-4mJttaDRXkBBL+8JqjfA1P5Ny64qmkZL3x5zELAW3tqehic3LLHvPNDcGAk8PVRooM2qUym9Oz3TfA9lO4OctA==}
-    dev: false
+    dev: true
 
   /svelte-preprocess@5.1.4(postcss@8.4.41)(svelte@5.0.0-next.224)(typescript@5.5.4):
     resolution: {integrity: sha512-IvnbQ6D6Ao3Gg6ftiM5tdbR6aAETwjhHV+UKGf5bHGYR69RQvF1ho0JKPcbUON4vy4R7zom13jPjgdOWCQ5hDA==}

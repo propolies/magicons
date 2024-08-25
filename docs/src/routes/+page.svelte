@@ -21,15 +21,14 @@
   <div class="flex min-[400px]:flex-row flex-col gap-4 mt-12">
     <Link
       href="/docs/getting-started/introduction"
-      class="flex bg-[#348DF2] text-[#001B39] p-2 rounded-sm gap-2"
+      class="flex p-2 border rounded-sm gap-3 items-center transition-all duration-100 hover:bg-white hover:text-zinc-900"
     >
-      <Icon src="@hero-BookOpen" />
-      <!-- <Icon src={"@hero-BookOpen"} class="size-6 stroke-2" /> -->
-      <p class="font-bold">Documentation</p>
+      <Icon src={"@hero-BookOpen"} class="size-5" />
+      <p class="font-semibold">Documentation</p>
     </Link>
     <a
-      href="https://github.com/propolies/magicon"
-      class="flex gap-2 p-2 hover:border-white border border-zinc-900 rounded-sm transition-all"
+      href="https://github.com/propolies/magicons"
+      class="flex gap-2 p-2 hover:border-white border border-zinc-900 rounded-sm transition-all duration-100"
     >
       <Github class="size-6" />
       <p>View on Github</p>

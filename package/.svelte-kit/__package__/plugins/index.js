@@ -16,7 +16,7 @@ function replaceAll(s) {
 }
 export function magicons() {
     return {
-        name: "magicon preprocessor",
+        name: "s preprocessor",
         markup: function (_a) {
             var content = _a.content, filename = _a.filename;
             var _b = filename.split("/").at(-1).split(".").slice(-2), file = _b[0], ext = _b[1];
@@ -28,9 +28,7 @@ export function magicons() {
                 return;
             var matches = {};
             var s = new MagicString(content, { filename: filename });
-            s = replaceAll(s, /^(?!const|let|var).*src=("@\S*-\S*").*$/gm, function (original, g) {
-                return original.replace(g, "{".concat(g, "}"));
-            });
+            s = replaceAll(s, /^(?!const|let|var).*src=("@\S*-\S*").*$/gm, function (original, g) { return original.replace(g, "{".concat(g, "}")); });
             s = replaceAll(s, providerRegex, function ($, provider, icon) {
                 addMatch(matches, [icon, provider]);
                 return "".concat(provider, "_").concat(icon.replaceAll("-", "_"));

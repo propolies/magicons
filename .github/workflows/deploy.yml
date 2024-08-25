@@ -25,19 +25,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: "./docs"
-        run: pnpm install
-
-      - name: Build magicon
-        working-directory: "./packages/core"
-        run: pnpm build
-      
-      - name: Build generator
-        working-directory: "./packages/generator"
-        run: pnpm build
-
-      - name: Build heroicons
-        working-directory: "./packages/icons/hero-icons"
-        run: pnpm build
+        run: pnpm install --ignore-workspace
 
       - name: build
         working-directory: "./docs"

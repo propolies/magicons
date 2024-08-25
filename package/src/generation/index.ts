@@ -12,13 +12,10 @@ const providerMap = {
 
 const providerTransforms: Record<Providers, (body: MagicString) => MagicString> = {
   hero: (body) => {
-    return body.replaceAll(/stroke-width="(\S*)"/g, (original, g) => {
-      console.log("G", g)
-      return original
-    })
+    return body.replaceAll(/stroke-width="([\d|.]+)"/g, () => "")
   },
   lucide: (body) => {
-    return body
+    return body.replaceAll(/stroke-width="([\d|.]+)"/g, () => "")
   }
 }
 
@@ -72,7 +69,7 @@ providers.forEach((provider) => {
   fs.writeFileSync(packagePath + "/package.json", JSON.stringify({
     name: `@magicons/${provider}-icons`,
     version: config.versions,
-    description: "generated hero-icons for magicon",
+    description: "generated hero-icons for magicons",
     author: {
       name: "propolies",
       url: "https://github.com/propolies"

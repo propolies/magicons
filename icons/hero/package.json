@@ -1,7 +1,7 @@
 {
   "name": "@magicons/hero-icons",
-  "version": "0.0.2",
-  "description": "generated hero-icons for magicon",
+  "version": "0.0.3",
+  "description": "generated hero-icons for magicons",
   "author": {
     "name": "propolies",
     "url": "https://github.com/propolies"
@@ -13,9 +13,6 @@
     "directory": "package"
   },
   "homepage": "https://propolies.github.io/magicons/",
-  "scripts": {
-    "build": "tsc && tsx generate"
-  },
   "files": [
     "dist",
     "!dist/**/*.test.*",

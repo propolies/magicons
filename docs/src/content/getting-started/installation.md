@@ -1,31 +1,28 @@
 ---
-description: Installition process.
+description: Installation process.
 ---
 
 ## Install
 ```
-pnpm add @magicon/core @magicon/hero-icons
+pnpm add @magicons/core @magicons/hero-icons
 ```
 Add the preprocessor to svelte
 ```ts file=svelte.config.js
-import { magicon } from '@magicon/core/plugins'
+import { magicons } from '@magicons/core/plugins'
 
 const config = {
-  preprocess: [magicon()]
+  preprocess: [magicons()]
 }
 ```
 To get the correct Icon types you have to import the providers in `app.d.ts` like.
 ```ts file=app.d.ts
-import '@magicon/core/hero-icons'
+import '@magicons/core/hero-icons'
 ```
 
 ## Supported Icon libraries
 ```
-pnpm add @magicon/hero-icons
+pnpm add @magicons/hero-icons
 ```
 ```
-pnpm add @magicon/lucide-icons
-```
-```
-pnpm add @magicon/logos-icons
+pnpm add @magicons/lucide-icons
 ```

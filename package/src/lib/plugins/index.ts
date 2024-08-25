@@ -15,7 +15,7 @@ function replaceAll(s: MagicString, ...rest: Parameters<MagicString["replaceAll"
 
 export function magicons() {
   return {
-    name: "magicon preprocessor",
+    name: "s preprocessor",
     markup: ({ content, filename }: { content: string, filename: string }) => {
       const [file, ext] = filename.split("/").at(-1)!.split(".").slice(-2)
       if (filename.includes("node_modules")) return

@@ -1,6 +1,4 @@
-import '$lib/components/icons/types'
 import '@magicons/hero-icons'
-import '@magicon/core'
 
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces

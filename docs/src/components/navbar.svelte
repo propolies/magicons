@@ -13,12 +13,12 @@
   "
 >
   <Link href="/" class="font-bold text-2xl text-white">
-    Magicon
+    Magicons
   </Link>
   <span class="flex gap-5 text-gray-200 items-center">
     <a
       class="hover:text-white transition-all size-6"
-      href="https://github.com/propolies/magicon"
+      href="https://github.com/propolies/magicons"
     >
       <Github />
     </a>

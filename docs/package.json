@@ -1,5 +1,5 @@
 {
-	"name": "docs",
+	"name": "magicons_docs",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -7,12 +7,14 @@
 		"build": "vite build",
 		"build-rm": "rm -rf build && vite build",
 		"preview": "vite preview",
+    "i": "pnpm install --ignore-workspace",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "eslint ."
 	},
 	"devDependencies": {
-		"@magicons/core": "workspace:^",
+		"@magicons/core": "0.0.2",
+		"@magicons/hero-icons": "0.0.3",
 		"@mdsx/rehype-custom-highlighter": "^0.0.3",
 		"@sveltejs/adapter-static": "^3.0.1",
 		"@sveltejs/kit": "^2.0.0",
@@ -39,8 +41,5 @@
 		"unist-util-visit": "^5.0.0",
 		"vite": "^5.0.3"
 	},
-	"type": "module",
-	"dependencies": {
-		"@magicons/hero-icons": "workspace:^"
-	}
+	"type": "module"
 }

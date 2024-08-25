@@ -1,6 +1,6 @@
 {
   "name": "@magicons/hero-icons",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "generated hero-icons for magicon",
   "author": {
     "name": "propolies",
@@ -26,8 +26,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./icons/*.js": {
-      "default": "./dist/icons/*.js"
+    "./icons/*.json": {
+      "default": "./dist/icons/*.json"
     }
   },
   "keywords": [],

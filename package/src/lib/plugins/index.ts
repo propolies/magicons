@@ -24,18 +24,18 @@ export function magicons() {
 
       const matches: Record<string, [string, string]> = {}
 
-
       let s = new MagicString(content, { filename })
-      s = replaceAll(s, /^(?!const|let|var).*src=("@\S*-\S*").*$/gm, (original, g) => {
-        return original.replace(g, `{${g}}`)
-      })
+      s = replaceAll(s, /^(?!const|let|var).*src=("@\S*-\S*").*$/gm,
+        (original, g) => original.replace(g, `{${g}}`)
+      )
+
       s = replaceAll(s, providerRegex, ($, provider, icon) => {
         addMatch(matches, [icon, provider])
         return `${provider}_${icon.replaceAll("-", "_")}`
       })
 
       const imports = Object.values(matches).map(
-        ([icon, provider]) => `\n      import ${provider}_${icon.replaceAll("-", "_")} from '@magicons/${provider}-icons/icons/${icon}.js';`
+        ([icon, provider]) => `\n      import ${provider}_${icon.replaceAll("-", "_")} from '@magicons/${provider}-icons/icons/${icon}.json';`
       ).join("\n")
 
       s = ext == "svelte"

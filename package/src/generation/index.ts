@@ -1,21 +1,26 @@
-import { providers } from "../lib/providers.js"
+import { providers, type Providers } from "../lib/providers.js"
 import fs from 'fs'
 import { icons as hero, type IconifyJSON } from '@iconify-json/heroicons'
 import { icons as lucide } from '@iconify-json/lucide'
 import MagicString from "magic-string"
-
-function capitalize(str: string) {
-  return str[0].toUpperCase() + str.slice(1)
-}
-
-function CamelCase(str: string) {
-  return str.split("-").map(capitalize).join(" ")
-}
+import { CamelCase, capitalize } from "./utils.js"
 
 const providerMap = {
   hero,
   lucide
-} as Record<string, IconifyJSON>
+} as Record<Providers, IconifyJSON>
+
+const providerTransforms: Record<Providers, (body: MagicString) => MagicString> = {
+  hero: (body) => {
+    return body.replaceAll(/stroke-width="(\S*)"/g, (original, g) => {
+      console.log("G", g)
+      return original
+    })
+  },
+  lucide: (body) => {
+    return body
+  }
+}
 
 const iconsPath = "../icons"
 
@@ -43,14 +48,12 @@ providers.forEach((provider) => {
   const icons = providerMap[provider].icons
   const iconNames = Object.entries(icons).map(([icon, opts]) => {
     const iconName = CamelCase(icon).replaceAll(" ", "")
-    const s = new MagicString(opts.body)
-    fs.writeFileSync(`${distPath}/icons/${iconName}.js`, `
-      export default ${JSON.stringify({
-    width: opts.width,
-    height: opts.height,
-    body: s.toString()
-  })};
-    `)
+    const s = providerTransforms[provider](new MagicString(opts.body))
+    fs.writeFileSync(`${distPath}/icons/${iconName}.json`, JSON.stringify({
+      width: opts.width,
+      height: opts.height,
+      body: s.toString()
+    }))
     return iconName
   })
 
@@ -81,9 +84,6 @@ providers.forEach((provider) => {
       directory: "package"
     },
     homepage: "https://propolies.github.io/magicons/",
-    scripts: {
-      build: "tsc && tsx generate"
-    },
     files: [
       "dist",
       "!dist/**/*.test.*",
@@ -94,8 +94,8 @@ providers.forEach((provider) => {
         "types": "./dist/index.d.ts",
         "import": "./dist/index.js"
       },
-      "./icons/*.js": {
-        "default": "./dist/icons/*.js"
+      "./icons/*.json": {
+        "default": "./dist/icons/*.json"
       }
     },
     keywords: [],

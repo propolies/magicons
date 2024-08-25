@@ -37,7 +37,7 @@ export function magicons() {
             });
             var imports = Object.values(matches).map(function (_a) {
                 var icon = _a[0], provider = _a[1];
-                return "\n      import ".concat(provider, "_").concat(icon.replaceAll("-", "_"), " from '@magicons/").concat(provider, "-icons/icons/").concat(icon, ".js';");
+                return "\n      import ".concat(provider, "_").concat(icon.replaceAll("-", "_"), " from '@magicons/").concat(provider, "-icons/icons/").concat(icon, ".json';");
             }).join("\n");
             s = ext == "svelte"
                 ? s.replaceAll(/<script([\S\s]*?)>([\S\s]*?)<\/script>/g, function (original, $atributes, g) {

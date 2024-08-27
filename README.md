@@ -1,4 +1,4 @@
-# magicons
+# magicons [![npm version](https://flat.badgen.net/npm/v/magicons?color=orange)](https://npmjs.com/package/magicons)
 Fast, typesafe Icon wrapper for **svelte**.
 
 ## Features

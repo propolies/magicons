@@ -1,4 +1,4 @@
-# magicons
+# magicons - [npm](https://www.npmjs.com/package/@magicons/core)
 Fast, typesafe Icon wrapper for **svelte**.
 
 ## Features

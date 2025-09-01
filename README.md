@@ -19,12 +19,12 @@ Fast, typesafe Icon wrapper for **svelte**.
 
 ```js
 // svelte.config.js
-import { magicons } from "@magicons/core/plugins";
+import { magicons } from '@magicons/core/plugins'
 ```
 
 ```ts
 // src/app.d.ts
-import "@magicons/pack-icons";
+import '@magicons/pack-icons'
 ```
 
 eg. `@magicons/hero-icons`
@@ -35,8 +35,8 @@ To use the hero-icons pack
 
 ```svelte
 <script>
-  import { Icon, type Icons } from "@magicons/core"
-  const icon: Icons = "@hero-ChevronDown"
+  import { Icon, type Icons } from '@magicons/core'
+  const icon: Icons = '@hero-ChevronDown'
 </script>
 
 <Icon src={icon} class="size-12" />

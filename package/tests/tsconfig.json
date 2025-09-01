@@ -10,7 +10,7 @@
     "outDir": "dist",
     "noEmit": true,
     "paths": {
-      "@magicons/core/*": ["../src/lib/*"],
+      "@magicons/core/*": ["../src/lib/*"]
     }
   },
   "ignoreConfigErrors": true,

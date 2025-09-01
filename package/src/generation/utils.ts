@@ -3,10 +3,7 @@ function capitalize(str: string) {
 }
 
 function CamelCase(str: string) {
-  return str.split("-").map(capitalize).join(" ")
+  return str.split('-').map(capitalize).join(' ')
 }
 
-export {
-  capitalize,
-  CamelCase
-}
+export { capitalize, CamelCase }

@@ -1,4 +1,4 @@
 packages:
-  - "./icons/**"
-  - "./package/**"
-  - "./docs/**"
+  - './icons/**'
+  - './package/**'
+  - './docs/**'

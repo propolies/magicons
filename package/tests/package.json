@@ -4,10 +4,10 @@
   },
   "type": "module",
   "devDependencies": {
-    "@sveltejs/kit": "^2.5.10",
-    "svelte": "5.0.0-next.166",
-    "typescript": "^5.4.5",
+    "@sveltejs/kit": "^2.37.0",
+    "svelte": "^5.38.6",
+    "typescript": "^5.9.2",
     "vite-tsconfig-paths": "^4.3.2",
-    "vitest": "^1.6.0"
+    "vitest": "^1.6.1"
   }
 }

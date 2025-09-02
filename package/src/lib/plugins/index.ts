@@ -26,9 +26,6 @@ export function magicons() {
       const matches: Record<string, [string, string]> = {}
 
       let s = new MagicString(content, { filename })
-      s = replaceAll(s, /^(?!const|let|var).*src=("@\S*-\S*").*$/gm, (original, g) =>
-        original.replace(g, `{${g}}`),
-      )
 
       s = replaceAll(s, providerRegex, ($, provider, icon) => {
         addMatch(matches, [icon, provider])

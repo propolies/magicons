@@ -13,6 +13,9 @@
     "typescript": "^5.4.5",
     "typescript-eslint": "^8.41.0"
   },
+  "scripts": {
+    "clean": "rimraf --glob \"**/node_modules\""
+  },
   "type": "module",
   "private": true
 }

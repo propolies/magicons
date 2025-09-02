@@ -119,17 +119,17 @@ describe('preprocessor should work', () => {
     )
   })
 
-  it('should work with plain string', async () => {
+  it('should work with single quotes', async () => {
     const res = plugin({
       content: `
-        <Icon src="@hero-ChevronDown" />
+        const icon = "@hero-Check"
       `,
       filename: 'src/file.ts',
     })
     expect(normalise(res?.code)).toEqual(
       normalise(`
-      import hero_ChevronDown from '@magicons/hero-icons/icons/ChevronDown.json';
-      <Icon src={hero_ChevronDown} />
+      import hero_Check from '@magicons/hero-icons/icons/Check.json';
+      const icon = hero_Check
     `),
     )
   })

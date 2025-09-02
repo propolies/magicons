@@ -20,6 +20,11 @@ Fast, typesafe Icon wrapper for **svelte**.
 ```js
 // svelte.config.js
 import { magicons } from '@magicons/core/plugins'
+
+const config = {
+  // add the preprocessor
+  preprocess: [magicons(), vitePreprocess()],
+}
 ```
 
 ```ts
@@ -27,7 +32,7 @@ import { magicons } from '@magicons/core/plugins'
 import '@magicons/pack-icons'
 ```
 
-eg. `@magicons/hero-icons`
+eg. `import "@magicons/hero-icons"`
 
 ## Example Usage
 
@@ -43,6 +48,10 @@ To use the hero-icons pack
 ```
 
 All strings matching the pattern `"@pack-"` will generate the correct imports making this extremely fast.
+
+## Caveat
+
+For props always maintain brackets i.e `<Component prop={"@pack-icon"} />`
 
 ## Filling icons
 

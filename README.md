@@ -8,7 +8,7 @@ Fast, typesafe Icon wrapper for **svelte**.
 - ⚡ **Preprocess** - Get instant icons in development
 - 🌴 **Treeshakeable** - Only used icons will remain
 - 🧙‍♂️ **Typesafe** - Full typesafety and autocompletion for applied icon packs
-- 💨 **TailwindCss** - Full tailwind support
+- 💨 **TailwindCSS** - Full Tailwind support
 
 ## Inlcuded Icon packs
 

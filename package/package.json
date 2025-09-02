@@ -1,6 +1,6 @@
 {
   "name": "@magicons/core",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "./dist/index.js",
   "scripts": {
     "dev": "rimraf dist && svelte-package --watch",
@@ -24,6 +24,10 @@
   "license": "ISC",
   "peerDependencies": {
     "svelte": "^4.0.0 || ^5.0.0"
+  },
+  "author": {
+    "name": "propolies",
+    "url": "https://github.com/propolies"
   },
   "devDependencies": {
     "@sveltejs/package": "^2.5.0",

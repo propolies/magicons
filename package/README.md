@@ -14,6 +14,7 @@ Fast, typesafe Icon wrapper for **svelte**.
 
 - [Hero](https://heroicons.com/) - [npm](https://www.npmjs.com/package/@magicons/hero-icons)
 - [Lucide](https://lucide.dev/icons/) - [npm](https://www.npmjs.com/package/@magicons/lucide-icons)
+- [Mdi](https://pictogrammers.com/library/mdi//) - [npm](https://www.npmjs.com/package/@magicons/mdi-icons)
 
 ## Setup
 
@@ -32,11 +33,14 @@ const config = {
 import '@magicons/pack-icons'
 ```
 
-eg. `import "@magicons/hero-icons"`
-
 ## Example Usage
 
 To use the hero-icons pack
+
+```ts
+// src/app.d.ts
+import '@magicons/hero-icons'
+```
 
 ```svelte
 <script>
@@ -51,7 +55,7 @@ All strings matching the pattern `"@pack-"` will generate the correct imports ma
 
 ## Caveat
 
-For props always maintain brackets i.e `<Component prop={"@pack-icon"} />`
+For all props always maintain brackets i.e `<Component prop={"@pack-icon"} />`
 
 ## Filling icons
 

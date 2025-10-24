@@ -1,7 +1,7 @@
 {
-  "name": "@magicons/hero-icons",
+  "name": "@magicons/mdi-icons",
   "version": "0.0.3",
-  "description": "generated hero-icons for magicons",
+  "description": "generated mdi-icons for magicons",
   "author": {
     "name": "propolies",
     "url": "https://github.com/propolies"

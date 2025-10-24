@@ -2,12 +2,14 @@ import { providers, type Providers } from '../lib/providers.js'
 import fs from 'fs'
 import { icons as hero, type IconifyJSON } from '@iconify-json/heroicons'
 import { icons as lucide } from '@iconify-json/lucide'
+import { icons as mdi } from '@iconify-json/mdi'
 import MagicString from 'magic-string'
 import { CamelCase, capitalize } from './utils.js'
 
 const providerMap = {
   hero,
   lucide,
+  mdi,
 } as Record<Providers, IconifyJSON>
 
 const providerTransforms: Record<Providers, (body: MagicString) => MagicString> = {
@@ -16,6 +18,9 @@ const providerTransforms: Record<Providers, (body: MagicString) => MagicString> 
   },
   lucide: (body) => {
     return body.replaceAll(/stroke-width="([\d|.]+)"/g, () => '')
+  },
+  mdi: (body) => {
+    return body
   },
 }
 
@@ -81,7 +86,7 @@ providers.forEach((provider) => {
       {
         name: `@magicons/${provider}-icons`,
         version: config.versions,
-        description: 'generated hero-icons for magicons',
+        description: `generated ${provider}-icons for magicons`,
         author: {
           name: 'propolies',
           url: 'https://github.com/propolies',

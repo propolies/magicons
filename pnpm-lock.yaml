@@ -45,6 +45,19 @@ importers:
         specifier: ^8.41.0
         version: 8.41.0(eslint@9.34.0)(typescript@5.9.2)
 
+  packages/components/kiru:
+    dependencies:
+      '@magicons/shared':
+        specifier: ^0.0.1
+        version: 0.0.1
+      kiru:
+        specifier: ^0.50.4
+        version: 0.50.4
+    devDependencies:
+      '@sveltejs/package':
+        specifier: ^2.5.0
+        version: 2.5.0(svelte@5.38.6)(typescript@5.9.2)
+
   packages/components/svelte:
     dependencies:
       '@magicons/shared':
@@ -1125,6 +1138,9 @@ packages:
 
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
+
+  kiru@0.50.4:
+    resolution: {integrity: sha512-EyKcB8asIKHNpjnfuyEhAPTaqr6Sxz/Kt2vsd4E4kxNOOfqzbzkAIhMPoMD+CUoekBeQeE+kKtuhzyy2AbR0xQ==}
 
   kleur@4.1.5:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
@@ -2587,6 +2603,8 @@ snapshots:
   keyv@4.5.4:
     dependencies:
       json-buffer: 3.0.1
+
+  kiru@0.50.4: {}
 
   kleur@4.1.5: {}
 

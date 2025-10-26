@@ -1,0 +1,34 @@
+{
+  "name": "@magicons/kiru",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "rimraf dist && tsc && publint"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "ISC",
+  "author": {
+    "name": "prop",
+    "url": "https://github.com/propolies"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/propolies/magicons.git",
+    "directory": "package"
+  },
+  "peerDependencies": {
+    "kiru": "^0.50.4"
+  },
+  "type": "module",
+  "dependencies": {
+    "@magicons/shared": "^0.0.1"
+  }
+}

@@ -7,10 +7,11 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "outDir": "./dist",
-    "declaration": true
+    "declaration": true,
+    "jsx": "preserve"
   },
-  "include": ["src/lib"]
+  "include": ["src"]
 }

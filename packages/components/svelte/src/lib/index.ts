@@ -1,4 +1,4 @@
 import Icon from './icon.svelte'
-import type { Icons } from './types.js'
+import type { Icons } from '@magicons/shared'
 
 export { Icon, type Icons }

@@ -1,0 +1,35 @@
+{
+  "name": "magicons",
+  "version": "0.0.2",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "rimraf dist && tsc && publint",
+    "test": "cd tests && pnpm test"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "ISC",
+  "author": {
+    "name": "prop",
+    "url": "https://github.com/propolies"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/propolies/magicons.git"
+  },
+  "devDependencies": {
+    "magic-string": "^0.30.18",
+    "vite": "^7.1.12"
+  },
+  "type": "module",
+  "dependencies": {
+    "@magicons/shared": "^0.0.1"
+  }
+}

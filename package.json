@@ -8,13 +8,14 @@
     "globals": "^15.15.0",
     "prettier": "^3.6.2",
     "prettier-plugin-svelte": "^3.4.0",
+    "publint": "^0.3.15",
     "rimraf": "^5.0.10",
-    "tsx": "^4.20.5",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.41.0"
   },
   "scripts": {
-    "clean": "rimraf --glob \"**/node_modules\""
+    "clean": "rimraf --glob \"**/node_modules\"",
+    "run:generate": "tsx ./src/generation/index.ts"
   },
   "type": "module",
   "private": true

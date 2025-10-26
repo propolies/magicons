@@ -1,5 +1,6 @@
 import MagicString from 'magic-string'
-import { providers } from '../providers.js'
+import { providers } from '@magicons/shared'
+import { PluginOption } from 'vite'
 
 const providerRegex = new RegExp(`"@(${providers.join('|')})-(\\S*)"`, 'g')
 
@@ -13,19 +14,19 @@ function replaceAll(s: MagicString, ...rest: Parameters<MagicString['replaceAll'
   return new MagicString(s.replaceAll(...rest).toString())
 }
 
-export function magicons() {
+export function magicons(): PluginOption {
   return {
     name: 's preprocessor',
-    markup: ({ content, filename }: { content: string; filename: string }) => {
+    transform: (code, id) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const [file, ext] = filename.split('/').at(-1)!.split('.').slice(-2)
-      if (filename.includes('node_modules')) return
-      if (!filename.includes('src')) return
-      if (!['ts', 'js', 'svelte'].includes(ext)) return
+      const [file, ext] = id.split('/').at(-1)!.split('.').slice(-2)
+      if (id.includes('node_modules')) return
+      if (!id.includes('src')) return
+      if (!['ts', 'js', 'svelte', 'tsx', 'jsx', 'mdx'].includes(ext)) return
 
       const matches: Record<string, [string, string]> = {}
 
-      let s = new MagicString(content, { filename })
+      let s = new MagicString(code, { filename: id })
 
       s = replaceAll(s, providerRegex, ($, provider, icon) => {
         addMatch(matches, [icon, provider])
@@ -48,7 +49,7 @@ export function magicons() {
 
       return {
         code: s.toString(),
-        map: s.generateMap({ hires: true, file: filename }),
+        map: s.generateMap({ hires: true, file: id }),
       }
     },
   }

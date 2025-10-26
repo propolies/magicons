@@ -1,0 +1,28 @@
+{
+  "name": "@magicons/shared",
+  "version": "0.0.1",
+  "description": "shared variables used across other magicons libraries",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rimraf dist && tsc && publint"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "author": {
+    "name": "prop",
+    "url": "https://github.com/propolies"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/propolies/magicons.git"
+  },
+  "license": "ISC",
+  "type": "module"
+}

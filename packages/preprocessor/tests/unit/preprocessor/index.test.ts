@@ -1,6 +1,6 @@
 /* eslint @typescript-eslint/no-explicit-any: 0 */
 import { describe, expect, it } from 'vitest'
-import { magicons } from '@magicons/core/plugins'
+import { magicons } from '@magicons/preprocessor'
 
 const plugin = magicons().markup
 const normalise = (s: string = '') => s?.replaceAll('\n', '').replace(/\s\s+/g, ' ')

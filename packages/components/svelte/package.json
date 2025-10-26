@@ -1,0 +1,38 @@
+{
+  "name": "@magicons/svelte",
+  "version": "0.0.2",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "svelte-package && publint"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "svelte": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "ISC",
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "author": {
+    "name": "prop",
+    "url": "https://github.com/propolies"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/propolies/magicons.git",
+    "directory": "package"
+  },
+  "devDependencies": {
+    "@sveltejs/package": "^2.5.0"
+  },
+  "type": "module",
+  "dependencies": {
+    "@magicons/shared": "^0.0.1"
+  }
+}

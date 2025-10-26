@@ -1,12 +1,15 @@
 <script lang="ts">
-  import type { Icons } from './types.js'
+  import type { Icons } from '@magicons/shared'
+  import type { SVGAttributes } from 'svelte/elements'
 
-  export let style = ''
-  export let src: Icons
-  let className = ''
-  export { className as class }
+  let {
+    src,
+    ...svgAttributes
+  }: {
+    src: Icons
+  } & SVGAttributes<SVGSVGElement> = $props()
 
-  $: opts = src as any as {
+  const opts = $state(src) as any as {
     width?: number
     height?: number
     body: string
@@ -22,7 +25,6 @@
   viewBox={`0 0 ${opts.width ?? '24'} ${opts.height ?? '24'}`}
   stroke-linecap="round"
   stroke-linejoin="round"
-  class={className}
-  {style}>
+  {...svgAttributes}>
   {@html opts.body}
 </svg>

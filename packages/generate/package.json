@@ -1,5 +1,5 @@
 {
-  "name": "generation",
+  "name": "generate",
   "version": "1.0.0",
   "main": "index.js",
   "license": "ISC",
@@ -7,6 +7,7 @@
     "@iconify-json/heroicons": "^1.1.24",
     "@iconify-json/lucide": "^1.1.208",
     "@iconify-json/mdi": "^1.2.3",
+    "@types/node": "^24.3.0",
     "magic-string": "^0.30.10"
   },
   "type": "module"

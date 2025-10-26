@@ -6,9 +6,11 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "sourceMap": true,
     "strict": true,
     "module": "NodeNext",
-    "moduleResolution": "NodeNext"
-  }
+    "moduleResolution": "NodeNext",
+    "outDir": "dist",
+    "declaration": true
+  },
+  "include": ["src", "src/index.ts"]
 }

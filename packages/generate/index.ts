@@ -1,5 +1,5 @@
-import { providers, type Providers } from '../lib/providers.js'
-import fs from 'fs'
+import { providers, type Providers } from '../shared/providers.js'
+import fs from 'node:fs'
 import { icons as hero, type IconifyJSON } from '@iconify-json/heroicons'
 import { icons as lucide } from '@iconify-json/lucide'
 import { icons as mdi } from '@iconify-json/mdi'

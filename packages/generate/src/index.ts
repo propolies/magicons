@@ -1,4 +1,4 @@
-import { providers, type Providers } from '../shared/providers.js'
+import { providers, type Providers } from '@magicons/shared'
 import fs from 'node:fs'
 import { icons as hero, type IconifyJSON } from '@iconify-json/heroicons'
 import { icons as lucide } from '@iconify-json/lucide'
@@ -88,7 +88,7 @@ providers.forEach((provider) => {
         version: config.versions,
         description: `generated ${provider}-icons for magicons`,
         author: {
-          name: 'propolies',
+          name: 'prop',
           url: 'https://github.com/propolies',
         },
         main: './dist/index.js',
@@ -97,7 +97,6 @@ providers.forEach((provider) => {
           url: 'git+https://github.com/propolies/magicons.git',
           directory: 'package',
         },
-        homepage: 'https://propolies.github.io/magicons/',
         files: ['dist', '!dist/**/*.test.*', '!dist/**/*.spec.*'],
         exports: {
           '.': {

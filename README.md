@@ -33,6 +33,7 @@ export default defineConfig({
 | ----------------------------- | ------------------------------------------------------------------ |
 | [Svelte](https://svelte.dev/) | [@magicons/svelte](https://www.npmjs.com/package/@magicons/svelte) |
 | [Kiru](https://kirujs.dev/)   | [@magicons/kiru](https://www.npmjs.com/package/@magicons/kiru)     |
+| [React](https://react.dev/)   | [@magicons/react](https://www.npmjs.com/package/@magicons/react)   |
 
 ### 3. Choose Icon Packs
 

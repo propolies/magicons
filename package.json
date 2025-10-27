@@ -15,7 +15,7 @@
   },
   "scripts": {
     "clean": "rimraf --glob \"**/node_modules\"",
-    "run:generate": "tsx ./src/generation/index.ts"
+    "run:generate": "tsx ./packages/generate/src/index.ts"
   },
   "type": "module",
   "private": true

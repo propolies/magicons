@@ -50,13 +50,10 @@ importers:
       '@magicons/shared':
         specifier: ^0.0.1
         version: 0.0.1
+    devDependencies:
       kiru:
         specifier: ^0.50.4
         version: 0.50.4
-    devDependencies:
-      '@sveltejs/package':
-        specifier: ^2.5.0
-        version: 2.5.0(svelte@5.38.6)(typescript@5.9.2)
 
   packages/components/svelte:
     dependencies:

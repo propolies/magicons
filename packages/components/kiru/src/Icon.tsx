@@ -1,5 +1,6 @@
 import type { Icons } from '@magicons/shared'
 import type { ElementProps } from 'kiru'
+import * as kiru from 'kiru'
 
 export function Icon({
   src,

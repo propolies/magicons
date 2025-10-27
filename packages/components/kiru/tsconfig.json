@@ -11,7 +11,9 @@
     "moduleResolution": "bundler",
     "outDir": "./dist",
     "declaration": true,
-    "jsx": "preserve"
+    "jsx": "react",
+    "jsxFactory": "kiru.createElement",
+    "jsxFragmentFactory": "kiru.Fragment"
   },
   "include": ["src"]
 }

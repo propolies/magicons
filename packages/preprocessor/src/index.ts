@@ -1,5 +1,6 @@
 import MagicString from 'magic-string'
 import { providers } from '@magicons/shared'
+import type { PluginOption } from 'vite'
 
 const providerRegex = new RegExp(`"@(${providers.join('|')})-(\\S*)"`, 'g')
 
@@ -15,6 +16,7 @@ function replaceAll(s: MagicString, ...rest: Parameters<MagicString['replaceAll'
 
 export function magicons() {
   return {
+    enforce: 'pre',
     name: 's preprocessor',
     transform: (code: string, id: string) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -51,5 +53,5 @@ export function magicons() {
         map: s.generateMap({ hires: true, file: id }),
       }
     },
-  }
+  } satisfies PluginOption
 }

@@ -1,4 +1,4 @@
-# magicons - [npm](https://www.npmjs.com/package/@magicons/preprocessor)
+# magicons - [npm](https://www.npmjs.com/package/magicons)
 
 Fast, typesafe Icon wrapper and preprocessor for **Vite** projects.
 
@@ -35,6 +35,8 @@ export default defineConfig({
 | [Kiru](https://kirujs.dev/)   | [@magicons/kiru](https://www.npmjs.com/package/@magicons/kiru)     |
 | [React](https://react.dev/)   | [@magicons/react](https://www.npmjs.com/package/@magicons/react)   |
 
+eg. `pnpm add @magicons/svelte -D`
+
 ### 3. Choose Icon Packs
 
 | Icon Pack                                      | npm                                                                            |
@@ -43,11 +45,16 @@ export default defineConfig({
 | [Lucide](https://lucide.dev/icons/)            | [@magicons/lucide-icons](https://www.npmjs.com/package/@magicons/lucide-icons) |
 | [Mdi](https://pictogrammers.com/library/mdi//) | [@magicons/mdi-icons](https://www.npmjs.com/package/@magicons/mdi-icons)       |
 
+eg. `pnpm add @magicons/hero-icons -D`
+
 ### 4. Import Icon Types
 
 ```ts
 // src/app.d.ts
-import '@magicons/pack-icons'
+import '@magicons/hero-icons'
+import '@magicons/lucide-icons'
+import '@magicons/mdi-icons'
+// import only the ones you use
 ```
 
 or
@@ -56,7 +63,7 @@ or
 // tsconfig.json
 {
   compilerOptions: {
-    types: ['@magicons/pack-icons']
+    types: ['@magicons/hero-icons', '@magicons/lucide-icons', '@magicons/mdi-icons']
   }
 }
 ```
@@ -88,7 +95,7 @@ export default defineConfig({
 
 Every string matching the patter `@pack-Icon` will be transformed into an import and svg.
 
-## Caveat
+## Caveat with Svelte
 
 All props should maintain brackets i.e `<Component prop={"@pack-icon"} />`
 

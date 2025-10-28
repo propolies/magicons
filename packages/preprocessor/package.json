@@ -1,6 +1,6 @@
 {
   "name": "magicons",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "./dist/index.js",
   "scripts": {
     "build": "rimraf dist && tsc && publint",
@@ -25,8 +25,7 @@
     "url": "git+https://github.com/propolies/magicons.git"
   },
   "devDependencies": {
-    "magic-string": "^0.30.18",
-    "vite": "^7.1.12"
+    "magic-string": "^0.30.18"
   },
   "type": "module",
   "dependencies": {

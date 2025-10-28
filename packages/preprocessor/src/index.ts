@@ -1,6 +1,5 @@
 import MagicString from 'magic-string'
 import { providers } from '@magicons/shared'
-import { PluginOption } from 'vite'
 
 const providerRegex = new RegExp(`"@(${providers.join('|')})-(\\S*)"`, 'g')
 
@@ -14,10 +13,10 @@ function replaceAll(s: MagicString, ...rest: Parameters<MagicString['replaceAll'
   return new MagicString(s.replaceAll(...rest).toString())
 }
 
-export function magicons(): PluginOption {
+export function magicons() {
   return {
     name: 's preprocessor',
-    transform: (code, id) => {
+    transform: (code: string, id: string) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const [file, ext] = id.split('/').at(-1)!.split('.').slice(-2)
       if (id.includes('node_modules')) return

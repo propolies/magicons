@@ -1,27 +1,27 @@
 /* eslint @typescript-eslint/no-explicit-any: 0 */
 import { describe, expect, it } from 'vitest'
-import { magicons } from '@magicons/preprocessor'
+import { magicons } from 'magicons'
 
-const plugin = magicons().markup
+const { transform } = magicons()
 const normalise = (s: string = '') => s?.replaceAll('\n', '').replace(/\s\s+/g, ' ')
 
 describe('preprocessor should work with svelte', () => {
   it('should work', async () => {
-    const res = plugin({
-      content: `
+    const res = transform(
+      `
         <script>
-          import { Icon } from '@magicons/core'
+          import { Icon } from '@magicons/svelte'
         </script>
 
         <Icon src={"@hero-ChevronDown"} />  
       `,
-      filename: 'src/+page.svelte',
-    })
+      'src/+page.svelte',
+    )
     expect(normalise(res?.code)).toEqual(
       normalise(`
       <script>
         import hero_ChevronDown from '@magicons/hero-icons/icons/ChevronDown.json';
-        import { Icon } from '@magicons/core'
+        import { Icon } from '@magicons/svelte'
       </script>
 
       <Icon src={hero_ChevronDown} />
@@ -30,23 +30,23 @@ describe('preprocessor should work with svelte', () => {
   })
 
   it('should work with variables', async () => {
-    const res = plugin({
-      content: `
+    const res = transform(
+      `
         <script>
-          import { Icon, type Icons } from '@magicons/core'
+          import { Icon, type Icons } from '@magicons/svelte'
 
           const icon: Icons = "@hero-ChevronDown"
         </script>
 
         <Icon src={icon} />  
       `,
-      filename: 'src/+page.svelte',
-    })
+      'src/+page.svelte',
+    )
     expect(normalise(res?.code)).toEqual(
       normalise(`
       <script>
         import hero_ChevronDown from '@magicons/hero-icons/icons/ChevronDown.json';
-        import { Icon, type Icons } from '@magicons/core'
+        import { Icon, type Icons } from '@magicons/svelte'
 
         const icon: Icons = hero_ChevronDown
       </script>
@@ -59,12 +59,12 @@ describe('preprocessor should work with svelte', () => {
 
 describe('preprocessor should work', () => {
   it('should work with duplicate icons', async () => {
-    const res = plugin({
-      content: `
+    const res = transform(
+      `
         "@hero-ChevronDown" "@hero-ChevronDown"
       `,
-      filename: 'src/file.ts',
-    })
+      'src/file.ts',
+    )
     expect(normalise(res?.code)).toEqual(
       normalise(`
       import hero_ChevronDown from '@magicons/hero-icons/icons/ChevronDown.json';
@@ -74,12 +74,12 @@ describe('preprocessor should work', () => {
   })
 
   it('should work with themes', async () => {
-    const res = plugin({
-      content: `
+    const res = transform(
+      `
         const icon = "@hero-ChevronDown-micro"
       `,
-      filename: 'src/file.ts',
-    })
+      'src/file.ts',
+    )
     expect(normalise(res?.code)).toEqual(
       normalise(`
       import hero_ChevronDown_micro from '@magicons/hero-icons/icons/ChevronDown-micro.json';
@@ -89,12 +89,12 @@ describe('preprocessor should work', () => {
   })
 
   it('should work with other providers', async () => {
-    const res = plugin({
-      content: `
+    const res = transform(
+      `
         "@lucide-ChevronDown"
       `,
-      filename: 'src/file.ts',
-    })
+      'src/file.ts',
+    )
     expect(normalise(res?.code)).toEqual(
       normalise(`
       import lucide_ChevronDown from '@magicons/lucide-icons/icons/ChevronDown.json';
@@ -104,12 +104,12 @@ describe('preprocessor should work', () => {
   })
 
   it('should work with multiple providers', async () => {
-    const res = plugin({
-      content: `
+    const res = transform(
+      `
         "@hero-ChevronDown" "@lucide-ChevronDown"
       `,
-      filename: 'src/file.ts',
-    })
+      'src/file.ts',
+    )
     expect(normalise(res?.code)).toEqual(
       normalise(`
       import hero_ChevronDown from '@magicons/hero-icons/icons/ChevronDown.json';
@@ -120,12 +120,12 @@ describe('preprocessor should work', () => {
   })
 
   it('should work with single quotes', async () => {
-    const res = plugin({
-      content: `
+    const res = transform(
+      `
         const icon = "@hero-Check"
       `,
-      filename: 'src/file.ts',
-    })
+      'src/file.ts',
+    )
     expect(normalise(res?.code)).toEqual(
       normalise(`
       import hero_Check from '@magicons/hero-icons/icons/Check.json';

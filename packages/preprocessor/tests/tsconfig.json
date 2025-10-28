@@ -9,9 +9,8 @@
     "skipLibCheck": true,
     "noEmit": true,
     "paths": {
-      "@magicons/core/*": ["../src/lib/*"]
+      "magicons": ["../src/"]
     }
   },
-  "ignoreConfigErrors": true,
   "include": ["unit/**/*.ts"]
 }

@@ -55,6 +55,30 @@ describe('preprocessor should work with svelte', () => {
     `),
     )
   })
+
+  it('should work with ternary operator', async () => {
+    const res = transform(
+      `
+        <script>
+          import { Icon } from '@magicons/svelte'
+        </script>
+
+        <Icon src={up ? "@hero-ChevronUp" : "@hero-ChevronDown"} />  
+      `,
+      'src/+page.svelte',
+    )
+    expect(normalise(res?.code)).toEqual(
+      normalise(`
+      <script>
+        import hero_ChevronUp from '@magicons/hero-icons/icons/ChevronUp.json';
+        import hero_ChevronDown from '@magicons/hero-icons/icons/ChevronDown.json';
+        import { Icon } from '@magicons/svelte'
+      </script>
+
+      <Icon src={up ? hero_ChevronUp : hero_ChevronDown} /> 
+    `),
+    )
+  })
 })
 
 describe('preprocessor should work', () => {
